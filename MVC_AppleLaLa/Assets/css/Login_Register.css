@@ -1,0 +1,143 @@
+﻿h3 {
+    color: #fff;
+    font-family: inherit;
+    font-weight: 500;
+}
+
+
+
+h5 {
+    color: var(--title-color);
+    font-weight: 800;
+    font-size: 15px;
+}
+
+
+
+.login_top {
+    text-align: center;
+    background-color: var( --main-color);
+    color: #fff;
+    margin-top: 30px;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+}
+
+
+
+.login_content {
+    padding-top: 30px;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+
+
+.remember {
+    margin-bottom: 30px;
+    margin-top: 6px;
+}
+
+
+
+.btn {
+    color: #fff;
+}
+
+
+
+.login_btn {
+    background-color: var(--button-color);
+    border-radius: 30px;
+}
+
+
+
+.thrid_part_btn {
+    background-color: #245aaa;
+}
+
+
+
+.btn-list-btn {
+    height: calc(1.5em + .75rem + 2px);
+    margin-top: 10px;
+    float: right;
+}
+
+
+
+#Google {
+    background-color: #7e7e7e;
+}
+
+
+
+#Facebook {
+    background-color: #036AE3;
+}
+
+
+
+.third_login_word {
+    text-align: center;
+    font-size: 12px;
+    color: #56442c;
+}
+
+
+
+.border_all {
+    border: 1px solid #dcdcdc;
+}
+
+#CaptchaInputText {
+    display: block;
+    width: 100%;
+    height: calc(2.25rem + 2px);
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.forgot_confirme_top {
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+.password_tip {
+    position: absolute;
+    background-color: #FFF;
+    border: 1px solid #a4acb5;
+    padding: 3px 10px;
+    border-radius: 5px;
+    z-index: 100;
+    display: none;
+}
+
+.megbox_top {
+    width: 13px;
+    height: 7px;
+    position: absolute;
+    background: url('https://drive.google.com/uc?export=view&id=1tXHt4446XRuL1D6V1k6EE3TqbDl6BT5m') no-repeat;
+    top: -7px;
+}
+
+/*.megbox_meg {
+    padding-left: 25px;
+    background: url(./images/warning.gif) no-repeat;
+    line-height: 20px;
+}*/
+
+.megbox_txt li{
+    font-size: 12px;
+    color: #7e7e7e;
+}

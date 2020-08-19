@@ -1,0 +1,107 @@
+2020-06-16 12:31:41: ["Status","MerchantID","Version","TradeInfo","TradeSha"]
+2020-06-16 12:31:41: SpgatewayReturn(支付完成)
+Status : SUCCESS
+MerchantID : MS111435436
+Version : 1.5
+TradeInfo : 35a4e064970a08da942abca058768b2905a71afd6cea70ea2924dc0eb59eddfcd1cd83b8390ac1c43b0f7250c531992b591118949fe7ebc1953fb39209639010c2397b431bae853464c90dc772624c6a84a06753ec65b8a0ea6128d785e95ad73a344393f2f18ceaca2dbfa136b847b9d7ebaf79a44edf13968027930440821b9582906bbbb6fbf348b4191a8fe8b75e29c77b73aaa46900a56e86791e244dd72445525eef62566c12465fda723a91cb04d8b01756619d939caebbade2e5686b327315788556d99f736b90de3f4a76e6cccbe4d906d5d588af4e00f410fc18a6771cac7b4d574de42efda7ee8a311736ab82c88ac16f1c1242cb2a36f0022db91054b05146abc0167c8314942a42a295f41de4e002ba40285d34ed9a54443f7502d4f8398cc97842b05003e87ab3a6023306d43a598a7fbdbe4ee8089bbde4417642f74d9ab4184759e4db6ad9adba48643aa8d41eba9dd9ad3db5ef777647b711ba74ed2b9f25f6676ced9c60f256e143b2ac26fb9006afd495b946584535a0
+TradeSha : A2D2AD8989EA842E8C30FDDB48272D30327515D051E78444916DC1CF75BC60D8
+
+2020-06-16 12:31:41: {"Status":"SUCCESS","Message":"授權成功","MerchantID":"MS111435436","Amt":880,"TradeNo":"20061612313376575","MerchantOrderNo":"1592281866","PaymentType":"CREDIT","RespondType":"String","PayTime":"2020-06-16 12:31:33","IP":"36.224.242.96","EscrowBank":"HNCB","RespondCode":"00","Auth":"854213","Card6No":"400022","Card4No":"1111","Inst":0,"InstFirst":0,"InstEach":0,"ECI":"","TokenUseStatus":9,"RedAmt":null,"PaymentMethod":"CREDIT","DCC_Amt":null,"DCC_Rate":null,"DCC_Markup":null,"DCC_Currency":null,"DCC_Currency_Code":null,"PayBankCode":null,"PayerAccount5Code":null,"CodeNo":null,"StoreType":null,"StoreID":null,"Barcode_1":null,"Barcode_2":null,"Barcode_3":null,"PayStore":null,"P2GTradeNo":null,"P2GPaymentType":null,"P2GAmt":null}
+2020-06-16 12:44:17: ["Status","MerchantID","Version","TradeInfo","TradeSha"]
+2020-06-16 12:44:17: SpgatewayReturn(支付完成)
+Status : SUCCESS
+MerchantID : MS111435436
+Version : 1.5
+TradeInfo : 35a4e064970a08da942abca058768b2905a71afd6cea70ea2924dc0eb59eddfcd1cd83b8390ac1c43b0f7250c531992b591118949fe7ebc1953fb39209639010c2397b431bae853464c90dc772624c6a84a06753ec65b8a0ea6128d785e95ad7ed9e5b3e040e06ff90a9b614585f75c1cdbadeb64e62a8cd70093bbc7766d74a91ad61246e21d33abf64a182164f4a0f586a8805d84c369789959bd52bc692486a33a8e87d9e9fb75a7b0c4078e47d7a57f9ac5244a5d73e380023a8940e6c38e291e76de903085b1e8d3d24f72a8f624477a2261d0f69cb1a44cb17e07523128d1919b777e2e7062888bef5bc893bbba4db4edf044e741dc055ba960dd0d24697bb9908c1e64ad11b15045006d752fb96dd672bded2d21840b42c4f25db980775abe251f3fb57ed2eb4f590b5cd341f6aaf693f4a736d48deec2c75b9dbb46d1649ccab96538fd1dd9c206801f681a933bf4a1b2981f77af2232abc98f34acd408b0415cf8cfc18c99394c4b50760eefa0f831b12b8b8111d33c0cba4f6da63
+TradeSha : AEAC2DF2B2EC34506F87F8F9290D6C1317105FEC778FE0B9F8E0D8E01234D528
+
+2020-06-16 12:46:31: {"Status":"SUCCESS","Message":"授權成功","MerchantID":"MS111435436","Amt":880,"TradeNo":"20061612441036275","MerchantOrderNo":"1592282625","PaymentType":"CREDIT","RespondType":"String","PayTime":"2020-06-16 12:44:10","IP":"36.224.242.96","EscrowBank":"HNCB","RespondCode":"00","Auth":"854234","Card6No":"400022","Card4No":"1111","Inst":0,"InstFirst":0,"InstEach":0,"ECI":"","TokenUseStatus":9,"RedAmt":null,"PaymentMethod":"CREDIT","DCC_Amt":null,"DCC_Rate":null,"DCC_Markup":null,"DCC_Currency":null,"DCC_Currency_Code":null,"PayBankCode":null,"PayerAccount5Code":null,"CodeNo":null,"StoreType":null,"StoreID":null,"Barcode_1":null,"Barcode_2":null,"Barcode_3":null,"PayStore":null,"P2GTradeNo":null,"P2GPaymentType":null,"P2GAmt":null}
+2020-06-16 12:54:36: ["Status","MerchantID","Version","TradeInfo","TradeSha"]
+2020-06-16 12:54:36: SpgatewayReturn(支付完成)
+Status : SUCCESS
+MerchantID : MS111435436
+Version : 1.5
+TradeInfo : 35a4e064970a08da942abca058768b2905a71afd6cea70ea2924dc0eb59eddfcd1cd83b8390ac1c43b0f7250c531992b591118949fe7ebc1953fb39209639010c2397b431bae853464c90dc772624c6a84a06753ec65b8a0ea6128d785e95ad76dbe85e6df0afaa8422f35f0738f07bee04bdd0e0fdfe1cd4a200580833cccc691287c3112d3b06787550245c6bcb543853a906952a71aa24962c9379be67942349dde9a47fe660dfb04eeb65df1fb9a3c3556941b2e815e975291a993504033f4a19a700bd3ec259e31ae1f9494af3ee65b1eec759f1ada1fd8095d3e6947a780a11797a911507280591ad46973e2d2bec3a2b188f693ba32367caf391b7209a9d5e8990df7074af93db23bddcd4af199751a733bb3d2fe97e86001c51b0d04f8712a4b3def285723e0c489a7a55183385066ef9b15c4f130584316790bce26d4d62f6a389a743bf0df146648a659617d7be107fcd5cba9c13fc56c4fe4e9886dcf82d84a81dd70f020cb9327d91446722ae425215a1b41daeb91a2ead89cdf
+TradeSha : 09874ECAB554B19FDD7E585C56BCA4C5FD8FD3F34517D113852E5DA002C9BE9C
+
+2020-06-16 12:54:36: {"Status":"SUCCESS","Message":"授權成功","MerchantID":"MS111435436","Amt":880,"TradeNo":"20061612542931372","MerchantOrderNo":"1592283248","PaymentType":"CREDIT","RespondType":"String","PayTime":"2020-06-16 12:54:29","IP":"36.224.242.96","EscrowBank":"HNCB","RespondCode":"00","Auth":"854246","Card6No":"400022","Card4No":"1111","Inst":0,"InstFirst":0,"InstEach":0,"ECI":"","TokenUseStatus":9,"RedAmt":null,"PaymentMethod":"CREDIT","DCC_Amt":null,"DCC_Rate":null,"DCC_Markup":null,"DCC_Currency":null,"DCC_Currency_Code":null,"PayBankCode":null,"PayerAccount5Code":null,"CodeNo":null,"StoreType":null,"StoreID":null,"Barcode_1":null,"Barcode_2":null,"Barcode_3":null,"PayStore":null,"P2GTradeNo":null,"P2GPaymentType":null,"P2GAmt":null}
+2020-06-16 12:58:45: ["Status","MerchantID","Version","TradeInfo","TradeSha"]
+2020-06-16 12:58:45: SpgatewayReturn(支付完成)
+Status : SUCCESS
+MerchantID : MS111435436
+Version : 1.5
+TradeInfo : 35a4e064970a08da942abca058768b2905a71afd6cea70ea2924dc0eb59eddfcd1cd83b8390ac1c43b0f7250c531992b591118949fe7ebc1953fb39209639010c2397b431bae853464c90dc772624c6a84a06753ec65b8a0ea6128d785e95ad77afb979a314e30a4a17844b0442bb8c4cebfc2eef6d0034dac1b871e1744e9f793221df05d10ef2625544ef5bb8a13c8e0168b6cedebc47d7301bd6aed4d907c4184825301e939749c1271ebfc3bc10fb0c03c368e36f2be950796b9519728925d7aab6d2e1c25a4436a3e7c58679bbd347bb51c98ab42e3ae664229cc02c24568dc611d4b9c84434e715077f506e4a8d740f8da3d77232bca9fd074cafbbdf8831e57c0fc20af9be4e4cb486cf94e94ac913c5d425ebee67c3235ab00b8e7c58e5e6fde4bcca9ead862c788fe7efcdcf3f885ba6319869da9e3e0c2e808a73ba0c2e5e64667a6a49ef9481b689b957ffda1a741c14fd2599ebb89ca89caf6980a58aff7178640bfbbe90b87f031e80a6344343bd9b049411b8d4b6237c63926
+TradeSha : BF9E8BD281170A1EA0DFABAB993ED39E55A12EB54CB2AD4A7F33CF0F6DB3AAFE
+
+2020-06-16 13:04:35: ["Status","MerchantID","Version","TradeInfo","TradeSha"]
+2020-06-16 13:04:35: SpgatewayReturn(支付完成)
+Status : SUCCESS
+MerchantID : MS111435436
+Version : 1.5
+TradeInfo : 35a4e064970a08da942abca058768b2905a71afd6cea70ea2924dc0eb59eddfcd1cd83b8390ac1c43b0f7250c531992b591118949fe7ebc1953fb39209639010c2397b431bae853464c90dc772624c6a84a06753ec65b8a0ea6128d785e95ad7973dbfbe2f62a7dcc92f46d284de41c6fae3f5d93d4c5a678962d156465c569b7be7301be0c56250bff1e35b13b86ac5f2cd358cc885e25b10b894f9a0c1fab9425a1a5d06cdfd90a8036e8125b8252e1751746c98093570aa792d733f1a4d52407f7a2a16c09d99a8e5a0a0a5bc097cb69a8dcd784927ae59c78ae86def3ad9604daa3b26fd87fd252bf88dba29d0b8081a19f5a014451d9bf06c10f68e605d124978648a0519f16f2587ed359d2e7f9beeee354e9c17ef515901a1832d935ab9503e5e5a9185510f87b916c1bb5518a856cc7a6ebb377ccc99896ba0f5e2f57e159430be0cde5fd06fb7ba9d29549a784622c18f06359c8b05ae1aa812d25888e158de089f10d1c83c2a96317067cdd21a06cac9c113f6c7b48c62b6a336ac
+TradeSha : F022093A8ADAC3A4228AE81D10A65907A1FCB3BD6C7FE34A5BC75B13EDFF4DDA
+
+2020-06-16 13:04:38: {"Status":"SUCCESS","Message":"授權成功","MerchantID":"MS111435436","Amt":880,"TradeNo":"20061613042893120","MerchantOrderNo":"1592283849","PaymentType":"CREDIT","RespondType":"String","PayTime":"2020-06-16 13:04:28","IP":"36.224.242.96","EscrowBank":"HNCB","RespondCode":"00","Auth":"854267","Card6No":"400022","Card4No":"1111","Inst":0,"InstFirst":0,"InstEach":0,"ECI":"","TokenUseStatus":9,"RedAmt":null,"PaymentMethod":"CREDIT","DCC_Amt":null,"DCC_Rate":null,"DCC_Markup":null,"DCC_Currency":null,"DCC_Currency_Code":null,"PayBankCode":null,"PayerAccount5Code":null,"CodeNo":null,"StoreType":null,"StoreID":null,"Barcode_1":null,"Barcode_2":null,"Barcode_3":null,"PayStore":null,"P2GTradeNo":null,"P2GPaymentType":null,"P2GAmt":null}
+2020-06-16 13:06:59: ["Status","MerchantID","Version","TradeInfo","TradeSha"]
+2020-06-16 13:06:59: SpgatewayReturn(支付完成)
+Status : SUCCESS
+MerchantID : MS111435436
+Version : 1.5
+TradeInfo : 35a4e064970a08da942abca058768b2905a71afd6cea70ea2924dc0eb59eddfcd1cd83b8390ac1c43b0f7250c531992b591118949fe7ebc1953fb39209639010c2397b431bae853464c90dc772624c6a84a06753ec65b8a0ea6128d785e95ad7aab065514120b5639d7395e459011e24d4308b07e19dbee3f21a75bd360988eb027de4e1474126e66880b65e0350f2efd50c142f17af9eda8696cca3dd0f8a8f7dcd66556a0e56bf2ac4224de276aea39fea88f7b2a543cc4d3297987d9158d8433f722c53954403c04d09aa763cfe87cb4ef127350b492af79cb388bdcb2416949a399009bac7c66f8dcd3d641e12f6d57ffd4eab0cd112d6b69a4b31b1fd1dbdcf1c7f857ac9bba2a75539dd627d48f217225198dfd1f745a3b903af544fc892793cd01ccb15137daaf2b601b454bb29afd6fcc7c869354ab6f3185358269c724bd02db1644ef00f8f25cd8e6799b2558ee2634e24dc6ef6a01a2b82f9784b9b612275dcf4832d367f2e835f520459a03347a193ca9145d760689453bee49b
+TradeSha : 368097B2FEE7AB1639C0AD26C9CE41C3AEFAF79692F5F99E706135D045367BA2
+
+2020-06-16 13:06:59: {"Status":"SUCCESS","Message":"授權成功","MerchantID":"MS111435436","Amt":880,"TradeNo":"20061613065279517","MerchantOrderNo":"1592283995","PaymentType":"CREDIT","RespondType":"String","PayTime":"2020-06-16 13:06:52","IP":"36.224.242.96","EscrowBank":"HNCB","RespondCode":"00","Auth":"854276","Card6No":"400022","Card4No":"1111","Inst":0,"InstFirst":0,"InstEach":0,"ECI":"","TokenUseStatus":9,"RedAmt":null,"PaymentMethod":"CREDIT","DCC_Amt":null,"DCC_Rate":null,"DCC_Markup":null,"DCC_Currency":null,"DCC_Currency_Code":null,"PayBankCode":null,"PayerAccount5Code":null,"CodeNo":null,"StoreType":null,"StoreID":null,"Barcode_1":null,"Barcode_2":null,"Barcode_3":null,"PayStore":null,"P2GTradeNo":null,"P2GPaymentType":null,"P2GAmt":null}
+2020-06-16 13:26:19: ["Status","MerchantID","Version","TradeInfo","TradeSha"]
+2020-06-16 13:26:19: SpgatewayReturn(支付完成)
+Status : SUCCESS
+MerchantID : MS111435436
+Version : 1.5
+TradeInfo : 35a4e064970a08da942abca058768b2905a71afd6cea70ea2924dc0eb59eddfcd1cd83b8390ac1c43b0f7250c531992b591118949fe7ebc1953fb39209639010c2397b431bae853464c90dc772624c6a84a06753ec65b8a0ea6128d785e95ad7b37d1a894f6a08014c3df5d794077f28e2a89ea65bdcc07ea7c4ccbcd4103f414620400ade9b3abc77f2a3354a39cdf761cfcd31d162c950908b4c7094af671c841578e9fbc113a6440be89d3ed8cb66ac5901dc05a4b553a6c4b3fbe3c6497ce42b2ba70d333727923154fb93773f259b354db1e75b9e929f9409f0a54e9c0170c89dccf60336babb211afe52e07d97d35d938790dc28cfe7e7a821752f0496de5c6ac8c2afc2b9886bd74135f900db3b145e7e499838d12201bac646597c5e94e30d2e67c6780649c7d9236e0a4e41909b757d3be80d21ea9c0686aabe2ea8a4c5fa16b20834665373d547e205fa1cfaa20a337a9577f1764893af7dab2f8e6ed07a46c4b8b3c245604bbd63be57858252855d9e5b1a040478775f65513a7b
+TradeSha : 5D92B2B1583B3F2A1E72C9C0FAE0862C60BC49CDE8263D097BB32B366B15F940
+
+2020-06-16 13:26:19: {"Status":"SUCCESS","Message":"授權成功","MerchantID":"MS111435436","Amt":880,"TradeNo":"20061613261164851","MerchantOrderNo":"1592285142","PaymentType":"CREDIT","RespondType":"String","PayTime":"2020-06-16 13:26:11","IP":"36.224.242.96","EscrowBank":"HNCB","RespondCode":"00","Auth":"854321","Card6No":"400022","Card4No":"1111","Inst":0,"InstFirst":0,"InstEach":0,"ECI":"","TokenUseStatus":9,"RedAmt":null,"PaymentMethod":"CREDIT","DCC_Amt":null,"DCC_Rate":null,"DCC_Markup":null,"DCC_Currency":null,"DCC_Currency_Code":null,"PayBankCode":null,"PayerAccount5Code":null,"CodeNo":null,"StoreType":null,"StoreID":null,"Barcode_1":null,"Barcode_2":null,"Barcode_3":null,"PayStore":null,"P2GTradeNo":null,"P2GPaymentType":null,"P2GAmt":null}
+2020-06-16 13:28:30: ["Status","MerchantID","Version","TradeInfo","TradeSha"]
+2020-06-16 13:28:30: SpgatewayReturn(支付完成)
+Status : SUCCESS
+MerchantID : MS111435436
+Version : 1.5
+TradeInfo : 35a4e064970a08da942abca058768b2905a71afd6cea70ea2924dc0eb59eddfcd1cd83b8390ac1c43b0f7250c531992b591118949fe7ebc1953fb39209639010c2397b431bae853464c90dc772624c6a84a06753ec65b8a0ea6128d785e95ad70a325ef64611a0dc6d70013666ac862c151808ba757ea326189a2fb7228195279a1b5ccdd92da9d3022f0fc0cf4b3ef7fa3e4b0330c809eea1e9c141a86ce14217b077b34530f0a3247255b21274c252b24c30c19f87293a7d415732ac843dde0794ea0e99166653f5b335961e5014671613345e93cec9fa689a7cebf12719fe4e9b19634367c239ec17d903402246132151d46040dc681c530e3a8a0d5b8cbd7ee301b3b56f0ed9948c639843c1cf4412ff4bf7cb8e33bc17ec76a5f0608ef6e8ec39aa0cc9433a204e80f508c28ab3c75c3bc409ad411da8d58d9f80b500252e9f7f2264066ac72386133a9358ef0111378d7c1f235de8e1f2d54484b5811e4d946b4889c1a412407d7c71eeff1de40d0714d9983d04a01b077712a125a1a7
+TradeSha : E66A0CD1C2A36FAE46BED5D44A5C0EB66FA4BF10A2159A7AE6BB82A9ACBFEA7F
+
+2020-06-16 13:28:30: {"Status":"SUCCESS","Message":"授權成功","MerchantID":"MS111435436","Amt":880,"TradeNo":"20061613282360492","MerchantOrderNo":"1592285287","PaymentType":"CREDIT","RespondType":"String","PayTime":"2020-06-16 13:28:23","IP":"36.224.242.96","EscrowBank":"HNCB","RespondCode":"00","Auth":"854333","Card6No":"400022","Card4No":"1111","Inst":0,"InstFirst":0,"InstEach":0,"ECI":"","TokenUseStatus":9,"RedAmt":null,"PaymentMethod":"CREDIT","DCC_Amt":null,"DCC_Rate":null,"DCC_Markup":null,"DCC_Currency":null,"DCC_Currency_Code":null,"PayBankCode":null,"PayerAccount5Code":null,"CodeNo":null,"StoreType":null,"StoreID":null,"Barcode_1":null,"Barcode_2":null,"Barcode_3":null,"PayStore":null,"P2GTradeNo":null,"P2GPaymentType":null,"P2GAmt":null}
+2020-06-16 13:30:22: ["Status","MerchantID","Version","TradeInfo","TradeSha"]
+2020-06-16 13:30:22: SpgatewayReturn(支付完成)
+Status : SUCCESS
+MerchantID : MS111435436
+Version : 1.5
+TradeInfo : 35a4e064970a08da942abca058768b2905a71afd6cea70ea2924dc0eb59eddfcd1cd83b8390ac1c43b0f7250c531992b591118949fe7ebc1953fb39209639010c2397b431bae853464c90dc772624c6a84a06753ec65b8a0ea6128d785e95ad7dd0741f7453802cd59e99b40d2c11123a3ebba18f82f381e29b15cb5f78d593afeffe3ffbab3c33801da91008f4d449df73e1c1af2e36c0ea8bd080f22cfd74d3cdf27c19cffb09b7400fa1c584ffb0ddca538b0714746ddf824df83cc846800b70549a79ec068f11683dbf08a3a584979f8be2ce3ea614463d3598636e78814b9dd535526e14e4a602cedb8141007b86f1a9ec922ff5b6585e021606e0ec4363d038d929bcec1e65be5f62da6cf3a5e2ac79db039b6309d95c2cb0acf637a87d08622356657a445a7b5cf238a5af5f7f20fa5a3829af729d5d2568ce91e99b918f0ad7f2b99f5d2c9539377b2984f00cbadbab19e8566bde4a9f3792fde920aede47da9ad3abc8c48540ce0559e4309dbd40e7a572f20e8b380f7e1f303d2ea
+TradeSha : 4C760E41EA788FEC98462F6A09204F3053C0DB8DFC03156A27CA74172DDBDEC7
+
+2020-06-16 13:30:22: {"Status":"SUCCESS","Message":"授權成功","MerchantID":"MS111435436","Amt":880,"TradeNo":"20061613301545741","MerchantOrderNo":"1592285398","PaymentType":"CREDIT","RespondType":"String","PayTime":"2020-06-16 13:30:15","IP":"36.224.242.96","EscrowBank":"HNCB","RespondCode":"00","Auth":"854345","Card6No":"400022","Card4No":"1111","Inst":0,"InstFirst":0,"InstEach":0,"ECI":"","TokenUseStatus":9,"RedAmt":null,"PaymentMethod":"CREDIT","DCC_Amt":null,"DCC_Rate":null,"DCC_Markup":null,"DCC_Currency":null,"DCC_Currency_Code":null,"PayBankCode":null,"PayerAccount5Code":null,"CodeNo":null,"StoreType":null,"StoreID":null,"Barcode_1":null,"Barcode_2":null,"Barcode_3":null,"PayStore":null,"P2GTradeNo":null,"P2GPaymentType":null,"P2GAmt":null}
+2020-06-16 13:32:41: ["Status","MerchantID","Version","TradeInfo","TradeSha"]
+2020-06-16 13:32:41: SpgatewayReturn(支付完成)
+Status : SUCCESS
+MerchantID : MS111435436
+Version : 1.5
+TradeInfo : 35a4e064970a08da942abca058768b2905a71afd6cea70ea2924dc0eb59eddfcd1cd83b8390ac1c43b0f7250c531992b591118949fe7ebc1953fb39209639010c2397b431bae853464c90dc772624c6a84a06753ec65b8a0ea6128d785e95ad7683ae35593c3b6bb398ad9fc6f54c16ec686a0a5c6045c708dfd7997d32fa0c24815523b5840ea2856ecceae85d661a808953f8bb26d63ae72adcd80dc664e198796115c5dc33861bec0ce64cc41ea2bc1c3b3c34460b72690a9c05c9913a7a7946d75f1c3236c837c298100d5d9991b496f2521f7e40978a8054291eeeb8b805ca0e23884ccaeb42d388df4335f55135a918b60388fa07ec003bf0ce6e42d6eed5912e805e1da3203ab3ce553d98b3a1c88ee0ee2c8901965262aa6b07547800dfd377146e26230ae243c21871161a2d157e225fe8ee459e037aca3000b03658d92892a5c2a2af37ba8dc338855d0ea9c3823f14dc1d90b7414ad0ec94aa3a73d0c1c61a316999742e4eb6bcd729a92012de4003355c36025611536d0a37d4a
+TradeSha : 9616D7E8CC8FFFF0EB81C23F2AB227BF584F431803644027D2B61986CD4455A2
+
+2020-06-16 13:32:41: {"Status":"SUCCESS","Message":"授權成功","MerchantID":"MS111435436","Amt":880,"TradeNo":"20061613323419392","MerchantOrderNo":"1592285534","PaymentType":"CREDIT","RespondType":"String","PayTime":"2020-06-16 13:32:34","IP":"36.224.242.96","EscrowBank":"HNCB","RespondCode":"00","Auth":"854348","Card6No":"400022","Card4No":"1111","Inst":0,"InstFirst":0,"InstEach":0,"ECI":"","TokenUseStatus":9,"RedAmt":null,"PaymentMethod":"CREDIT","DCC_Amt":null,"DCC_Rate":null,"DCC_Markup":null,"DCC_Currency":null,"DCC_Currency_Code":null,"PayBankCode":null,"PayerAccount5Code":null,"CodeNo":null,"StoreType":null,"StoreID":null,"Barcode_1":null,"Barcode_2":null,"Barcode_3":null,"PayStore":null,"P2GTradeNo":null,"P2GPaymentType":null,"P2GAmt":null}
+2020-06-16 13:38:22: ["Status","MerchantID","Version","TradeInfo","TradeSha"]
+2020-06-16 13:38:22: SpgatewayReturn(支付完成)
+Status : SUCCESS
+MerchantID : MS111435436
+Version : 1.5
+TradeInfo : 35a4e064970a08da942abca058768b2905a71afd6cea70ea2924dc0eb59eddfcd1cd83b8390ac1c43b0f7250c531992b591118949fe7ebc1953fb39209639010c2397b431bae853464c90dc772624c6a84a06753ec65b8a0ea6128d785e95ad75add3b744a00e0e32eee08c13c4cf263621fe894d4928adc4794a65be2bf721278c774f52a615562388f3d0bb15f20ed70413b696d19642ba1c29922e7ec2b78b2d16fbc1c328b2b16f55fd400b6fe867023d395891d05d815527a5787392ecae6d190fc8882c3b87784b80572d49f6eb209b5916e0322e0b0cc1d6ee8665fa63c6e2fbde8ed807a7ace4623123b0acc66af7da5993e5b687c99ff0465802ad0d8a775b8d536d9a52cb5bba2136c2cd0a47f224b2e36231899a9e49c4bffeda4e9319efbe0fe96b93900a63ad093e15757fc11c138cf54560c4e1bf1e2ad9bf26dbb34e19aaedda9d9c6e6994871b5a72ba9d77cd8f3065d96502ef9b00888c5d12fdfc64b3cda9f421b2e6d4c3cc48aec43fedc599185115a7ade52dff656e5
+TradeSha : 0AE0965B8C52DA7C923DC2748D517BB1C8EA9E1020208F70FF8D4E8C6F488207
+
+2020-06-16 13:38:22: {"Status":"SUCCESS","Message":"授權成功","MerchantID":"MS111435436","Amt":880,"TradeNo":"20061613381502957","MerchantOrderNo":"1592285878","PaymentType":"CREDIT","RespondType":"String","PayTime":"2020-06-16 13:38:15","IP":"36.224.242.96","EscrowBank":"HNCB","RespondCode":"00","Auth":"854363","Card6No":"400022","Card4No":"1111","Inst":0,"InstFirst":0,"InstEach":0,"ECI":"","TokenUseStatus":9,"RedAmt":null,"PaymentMethod":"CREDIT","DCC_Amt":null,"DCC_Rate":null,"DCC_Markup":null,"DCC_Currency":null,"DCC_Currency_Code":null,"PayBankCode":null,"PayerAccount5Code":null,"CodeNo":null,"StoreType":null,"StoreID":null,"Barcode_1":null,"Barcode_2":null,"Barcode_3":null,"PayStore":null,"P2GTradeNo":null,"P2GPaymentType":null,"P2GAmt":null}
+2020-06-16 13:44:15: ["Status","MerchantID","Version","TradeInfo","TradeSha"]
+2020-06-16 13:44:15: SpgatewayReturn(支付完成)
+Status : SUCCESS
+MerchantID : MS111435436
+Version : 1.5
+TradeInfo : 35a4e064970a08da942abca058768b2905a71afd6cea70ea2924dc0eb59eddfcd1cd83b8390ac1c43b0f7250c531992b591118949fe7ebc1953fb39209639010c2397b431bae853464c90dc772624c6a84a06753ec65b8a0ea6128d785e95ad7a482d4c93706630ef771d74420a6f983590467294dfc5702ee87b56bb1f0c1cdf368d8da1bb95b3a3dfeb599736937884aa12e969a68ff5993994ff76565ae7928fa62fd51ebc5a1b529e6a1dcbfe5b4300579aa3b4dd756849e7784ea31c9e4310e2c95985c2ea6c9b96ad5ee000b73cbfbd25aa0b015ace6ea45e545be2fc85af9ed486a3fd8113d7db384aab065ee0151d629ec5bef25e38d2bbf52a8e415818addbbe245c1e66ad45cd23e18ee104f773d2953c84b9cf1291f0556a0741a67568edb645c164aa614239467ef88c0a0d5da2cb6a796e9484695a0e55f0988f0951a9e061a8f448eabc1aee7357a5db727115821fd19bcf62c89201a1001c0f491885b206afa482cbc746ebf3be2561815b53c2548dd6e7cad51102ef7c350
+TradeSha : 6607A51C963465350DF15C790B762FC31E14ADBEC836EEB156B5A55246F28D5B
+
+2020-06-16 13:44:15: {"Status":"SUCCESS","Message":"授權成功","MerchantID":"MS111435436","Amt":880,"TradeNo":"20061613440857666","MerchantOrderNo":"1592286225","PaymentType":"CREDIT","RespondType":"String","PayTime":"2020-06-16 13:44:08","IP":"36.224.242.96","EscrowBank":"HNCB","RespondCode":"00","Auth":"854390","Card6No":"400022","Card4No":"1111","Inst":0,"InstFirst":0,"InstEach":0,"ECI":"","TokenUseStatus":9,"RedAmt":null,"PaymentMethod":"CREDIT","DCC_Amt":null,"DCC_Rate":null,"DCC_Markup":null,"DCC_Currency":null,"DCC_Currency_Code":null,"PayBankCode":null,"PayerAccount5Code":null,"CodeNo":null,"StoreType":null,"StoreID":null,"Barcode_1":null,"Barcode_2":null,"Barcode_3":null,"PayStore":null,"P2GTradeNo":null,"P2GPaymentType":null,"P2GAmt":null}

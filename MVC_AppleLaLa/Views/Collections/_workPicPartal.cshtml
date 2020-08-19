@@ -1,0 +1,9 @@
+﻿@model IEnumerable<MVC_AppleLaLa.ViewModels.Work>
+
+@foreach (var pics in Model)
+{
+    <div class="item set-bg h-100" data-setbg="@pics.WorksPic">
+        <h4 class="text" id="text_dot" style="height:500px">.</h4>
+    </div>
+}
+

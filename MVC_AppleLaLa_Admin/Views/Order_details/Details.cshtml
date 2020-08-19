@@ -1,0 +1,74 @@
+﻿@model MVCDataLibrary.DB_Model.Order_details
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Order_details</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Order.Order_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Order.Order_id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Service_details.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Service_details.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Appointment_date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Appointment_date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Session_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Session_id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Designer_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Designer_id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Coupon_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Coupon_id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Last_updata_date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Last_updata_date)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Order_detail_no }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,42 @@
+﻿@model IEnumerable<MVC_AppleLaLa.ViewModels.Work>
+
+@{
+    var serviceType = Model.Select((x) => new { x.ServiceName, x.BtnbgImg ,x.Id}).Distinct();
+    var btn = 0;
+    var id = 0;
+    var btn_id = "";
+}
+
+@foreach (var type in serviceType)
+{
+    id = @type.Id;
+    btn_id = "btn_" + id + "_" + btn;
+    <div class="card">
+        <div class="card-header p-0">
+            <button class="btn bg_img text-left set-bg" type="button" data-toggle="collapse"
+                    data-target="#@btn_id" aria-expanded="false" aria-controls="#@btn_id"
+                    style="height: 100px;" data-setbg="@type.BtnbgImg">
+
+                <h3 class="ml-5" id="serviceColor">@type.ServiceName</h3>
+            </button>
+        </div>
+
+        <div class="collapse show" id="@btn_id">
+
+            <div class="card-body">
+                <div class="owl-carousel owl-theme owl-works">
+                    @{
+
+                        var works_pic = Model.Where((x) => x.ServiceName == type.ServiceName);
+                    }
+
+                    @Html.Partial("_workPicPartal", works_pic)
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    btn++;
+
+}

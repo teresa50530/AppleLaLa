@@ -1,0 +1,271 @@
+﻿@*@model IEnumerable<MVC_AppleLaLa_Admin.ViewModels.Designer_Schedule.DS_ViewModel>*@
+@model List<MVC_AppleLaLa_Admin.ViewModels.Designer_Schedule.DS_ViewModel>
+
+@{
+    ViewBag.Title = "Edit";
+
+    var AllData = Model.GroupBy((x) => new { x.DesignerId, x.WorkDate });
+}
+
+<h2>修改班表</h2>
+
+@*@using (Html.BeginForm())
+    {*@
+@Html.AntiForgeryToken()
+<div class="table-responsive">
+    @*<form action="/Work_schedule/Edit" method="post">*@
+    <table class="table table-striped jambo_table bulk_action scheduleRow_title">
+        <thead class="scheduleThead">
+            <tr class="headings text-center">
+                <th class="designer_title column-title">日期</th>
+                <th class="designer_title column-title">設計師</th>
+                <th class="session_title column-title" value="1">11:00 </th>
+                <th class="session_title column-title" value="2">12:00 </th>
+                <th class="session_title column-title" value="3">13:00 </th>
+                <th class="session_title column-title" value="4">14:00 </th>
+                <th class="session_title column-title" value="5">15:00 </th>
+                <th class="session_title column-title" value="6">16:00 </th>
+                <th class="session_title column-title" value="7">17:00 </th>
+                <th class="session_title column-title" value="8">18:00 </th>
+                <th class="session_title column-title" value="9">19:00 </th>
+                <th class="session_title column-title" value="10">20:00 </th>
+                <th class="session_title column-title" value="11">21:00 </th>
+                <th class="bulk-actions" colspan="7">
+                    <a class="antoo" style="color:#fff; font-weight:500;">Bulk Actions ( <span class="action-cnt"> </span> ) <i class="fa fa-chevron-down"></i></a>
+                </th>
+            </tr>
+        </thead>
+        <tbody class="scheduleTbody">
+
+            @foreach (var name in AllData)
+            {
+
+                <tr class="even pointer text-center schedule_row_tr" value=" @name.Key.WorkDate.ToString("yyyy/MM/dd")">
+                    <td class="a-center ">
+                        <input class="text-center" type="text" name="WorkDate" readonly="readonly" value=" @name.Key.WorkDate.ToString("yyyy/MM/dd")" />
+                    </td>
+                    <td class="a-center ">
+                        <input class="text-center" type="text" name="DesignerId" readonly="readonly" value=" @name.Key.DesignerId " />
+                    </td>
+
+                    @foreach (var el in name)
+                    {
+                        if (el.WorkFlag == "Y")
+                        {
+                            @*<td class="icon_onwork" value="@el.SessionId">O</td>*@
+                            <td class="a-center icon_onwork">
+                                <input type="checkbox" name="SessionId" checked="checked" value="@el.SessionId" />
+                            </td>
+                        }
+                        else
+                        {
+                            <td class="a-center icon_onwork">
+                                <input type="checkbox" name="SessionId" value="@el.SessionId" />
+                            </td>
+                            @*<td class="icon_onwork" value="@el.SessionId">X</td>*@
+                        }
+                    }
+                </tr>
+
+            }
+
+
+        </tbody>
+    </table>
+    <div class="col-md-offset-2 col-md-10">
+        <input type="submit" value="確認修改" class="btn submitBtn btn-warning btn-lg btn-block" />
+    </div>
+    @*</form>*@
+</div>
+<div>
+    @Html.ActionLink("返回班表", "Index")
+</div>
+
+@*}*@
+
+@section endJS{
+    <script>
+
+        let submitBtn = document.getElementsByClassName('submitBtn')[0]
+        submitBtn.addEventListener('click', Getinputjson);
+
+
+        function Getinputjson() {
+            //alert('here');
+            let schedule_row_tr = document.querySelectorAll('.schedule_row_tr');
+
+            let ele;
+            let mapEat;
+            let datas = [];
+            let datasArr = [];
+            let finalData = [];
+            schedule_row_tr.forEach(element => {
+                ele = $(element).children();
+                let in_datas = [];
+                Array.from(ele).forEach((x, y) => {
+                    x = x.querySelector('input');
+                    in_datas.push((y > 1 ? x.checked : x.value));
+                });
+                datas.push(in_datas);
+            })
+
+            for (var i = 0; i < datas.length; i++) {
+                mapEat = datas[i].map(function (item, index, array) {
+                    if (item !== false && index != 0 && index != 1) {
+                        return (index - 1);
+                    } else {
+                        return "";
+                    }
+                });
+                mapEat = mapEat.filter(function (e) { return e });
+                datasArr.push(mapEat);
+            };
+
+            for (var j = 0; j < datasArr.length; j++) {
+                let redatas = {
+                    Date: datas[j][0],
+                    Designer: datas[j][1].trim(),
+                    Sessions: datasArr[j]
+                };
+                finalData.push(redatas);
+            };
+
+            console.log(finalData);
+            //alert(JSON.stringify(finalData));
+
+            $.ajax({
+                url: '/Work_schedule/Tojson',
+                type: 'post',
+                data: { inputjson: JSON.stringify(finalData) },
+                dataType: 'json',
+                success: function () {
+                    alert('修改成功');
+                    window.location.href = '/Work_schedule/Index' //這裡有問題,跳不進success,而是跳往error
+                   
+
+                },
+                error: function () {
+                    window.location.href = '/Work_schedule/Index'
+                }
+            });
+
+        }
+
+    </script>
+}
+
+
+@*//console.log(schedule_row_tr);
+    //schedule_row_tr.forEach(element => {
+    //    //var td = $(element).find('td').text();
+    //    console.log(element);
+    //    ele = $(element).childNodes
+    //    //arrayTr.push(element);
+
+    //    //for (let j = 0; j < arrayTr; j++) {
+    //    //    console.log()
+    //    //}
+
+    //    //for (let i = 2; i < $(element).find('td').length; i++) {
+    //    //    console.log($(element).find('td')[i]);
+    //    //    arrayTd.push($(element).find('td')[i]);
+    //    //}
+
+
+    //})
+    ////console.log(arrayTr);
+
+    //schedule_row_tr.forEach(x => {
+    //    yu(x.cells);
+    //});
+
+
+            //let session = document.getElementsByClassName('session')[0].getAttribute('value');
+            //let date = document.getElementsByClassName('date')[0].getAttribute('value');
+            //let onWork = document.getElementsByClassName('onWork')[0].getAttribute('value');
+            //let submitBtn = document.getElementsByClassName('submitBtn')[0];
+            //submitBtn.addEventListener('click', () => {
+            //    let inputjson = [{ "ID": designerId }, { "Session": session }, { "Date": date }, { "OnWork": onWork }];
+            //    $.ajax({
+            //        url: '/Designer_Schedule/Create',
+            //        type: 'post',
+            //        data: { inputjson: JSON.stringify(inputjson) },
+            //        dataType: 'text',
+            //        success: function () {
+            //            alert('新增成功');
+            //        }
+            //    });
+
+    //});
+    //function yu(array) {
+    //    array.forEach(item => {
+    //        console.log(item);
+    //    })
+
+    //}*@
+
+
+
+
+@*@using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Work_schedule</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model[0].DesignerId)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model[0].DesignerId, "Designer_id", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("Designer_id", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model[0].DesignerId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+                @Html.LabelFor(model => model[0].WorkDate, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model[0].WorkDate, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model[0].WorkDate, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model[0].SessionId, "Session_id", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownList("Session_id", null, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model[0].SessionId, "", new { @class = "text-danger" })
+                </div>
+            </div>*@
+
+@*<div class="form-group">
+    @Html.LabelFor(model => model.Reference_order_detail, htmlAttributes: new { @class = "control-label col-md-2" })
+    <div class="col-md-10">
+        @Html.EditorFor(model => model.Reference_order_detail, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.Reference_order_detail, "", new { @class = "text-danger" })
+    </div>*@
+@*</div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model[0].WorkFlag, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model[0].WorkFlag, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model[0].WorkFlag, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+
+    }
+
+    <div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>*@
+

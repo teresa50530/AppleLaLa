@@ -1,0 +1,29 @@
+﻿.col {
+    display: flex;
+    justify-content: center;
+}
+
+.card img {
+    width: 20em;
+    border-radius: 20px;
+    margin-top: 10px;
+}
+
+.card-body li {
+    list-style: none;
+    padding: 0;
+    padding: 1px 0;
+}
+
+.card {
+    box-shadow: 0px 0.3px 10px 0px rgba(0,0,0,0.1);
+    margin-top: 100px;
+}
+
+    .card:hover {
+        background-color: #e2c092;
+    }
+
+.info {
+    margin: 0 40px;
+}

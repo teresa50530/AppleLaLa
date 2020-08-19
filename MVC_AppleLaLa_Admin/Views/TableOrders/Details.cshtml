@@ -1,0 +1,53 @@
+﻿@model MVCDataLibrary.DB_Model.Order
+
+@{
+    ViewBag.Title = "Details";
+}
+
+@section topCSS{
+    <link href="~/Assets/css/tables.css" rel="stylesheet" />
+}
+
+<h2>訂單詳細資料</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal horizontal">
+        <dt>
+            客戶帳戶
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Customer.Account)
+        </dd>
+
+        <dt>
+            付款方式
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Payway.Name)
+        </dd>
+
+        <dt>
+            購買日期
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Order_date)
+        </dd>
+
+        <dt>
+            最後更新日期
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Last_updata_date)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("前往修改資料", "Edit", new { id = Model.Order_id }) |
+    @Html.ActionLink("回到列表", "Index")
+</p>

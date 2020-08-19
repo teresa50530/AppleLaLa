@@ -1,0 +1,279 @@
+﻿@model MVC_AppleLaLa_Admin.ViewModels.HomePage.HomePageViewModel
+@{
+    ViewBag.Title = "Home Page";
+    var top_tiles = Model.TopTiles;
+    //var lineChartLabel = Json.Encode(ViewBag.Label);
+    //var lineChartData = Json.Encode(ViewBag.ChartLine);
+    //var lineChartTitle = Json.Encode(ViewBag.TitleName);
+    //var radarChart = Json.Encode(ViewBag.Radar);
+    //var barLables = Json.Encode(ViewBag.BarLables);
+    //var barData = Json.Encode(ViewBag.BarData);
+}
+<!-- top tiles -->
+<div class="row">
+    <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 ">
+        <div class="tile-stats">
+            <div class="icon"><i class="fas fa-users"></i></div>
+            <div class="count">@top_tiles.MemberCount</div>
+            <h3>已註冊會員</h3>
+            <p><a href="/TableCustomers/Index">詳細資料</a></p>
+        </div>
+    </div>
+    <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 ">
+        <div class="tile-stats">
+            <div class="icon"><i class="fa fa-user-secret"></i></div>
+            <div class="count">@top_tiles.DesginerCount</div>
+            <h3>設計師</h3>
+            <p><a href="TableDesigners/Index">詳細資料</a></p>
+        </div>
+    </div>
+    <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 ">
+        <div class="tile-stats">
+            <div class="icon"><i class="fa fa-calendar"></i></div>
+            <div class="count">@top_tiles.AppointmentEvent</div>
+            <h3>今日預約</h3>
+            <p><a href="DataTables/AppointmentTable">詳細資料</a></p>
+        </div>
+    </div>
+    <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 ">
+        <div class="tile-stats">
+            <div class="icon"><i class="fa fa-line-chart"></i></div>
+            <div class="count">@top_tiles.OrderMonth</div>
+            <h3>本月訂單</h3>
+            <p><a href="#">詳細資料</a></p>
+        </div>
+    </div>
+    <h5 class="ml-auto">更新日期：<time>@DateTime.Now</time></h5>
+</div>
+<!-- /top tiles -->
+
+<div class="row">
+    <div class="col-md-6 col-sm-6  ">
+        <div class="x_panel">
+            <div class="x_title">
+                <h2>報表<small>(單位:$NT)</small></h2>
+                <ul class="nav navbar-right panel_toolbox">
+                    <li>
+                        <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                    </li>
+                    <li>
+                        <a class="link" href="/DataTables/DataForSales"><i class="fa fa-link" aria-hidden="true"></i></a>
+                    </li>
+                    <li>
+                        <a class="close-link"><i class="fa fa-close"></i></a>
+                    </li>
+                </ul>
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+                <canvas id="MyChart"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6 col-sm-6  ">
+        <div class="x_panel">
+            <div class="x_title">
+                <h2>服務項目雷達圖<small>Sessions</small></h2>
+                <ul class="nav navbar-right panel_toolbox">
+                    <li>
+                        <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                    </li>
+                    <li>
+                        <a class="link" href="#"><i class="fa fa-link" aria-hidden="true"></i></a>
+                    </li>
+                    <li>
+                        <a class="close-link"><i class="fa fa-close"></i></a>
+                    </li>
+                </ul>
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+                <canvas id="MyChart2"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6 col-sm-6">
+        <div class="x_panel">
+            <div class="x_title">
+                <h2>業績總計<small>Sessions</small></h2>
+                <ul class="nav navbar-right panel_toolbox">
+                    <li>
+                        <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                    </li>
+                    <li>
+                        <a class="link" href="#"><i class="fa fa-link" aria-hidden="true"></i></a>
+                    </li>
+                    <li>
+                        <a class="close-link"><i class="fa fa-close"></i></a>
+                    </li>
+                </ul>
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+                <canvas id="MyChart3"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6 col-sm-6  ">
+        <div class="x_panel">
+            <div class="x_title">
+                <h2>本月件數比例<small>Sessions</small></h2>
+                <ul class="nav navbar-right panel_toolbox">
+                    <li>
+                        <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                    </li>
+                    <li>
+                        <a class="link" href="#"><i class="fa fa-link" aria-hidden="true"></i></a>
+                    </li>
+                    <li>
+                        <a class="close-link"><i class="fa fa-close"></i></a>
+                    </li>
+                </ul>
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+                <canvas id="MyChart4"></canvas>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+<div class="clearfix"></div>
+
+
+
+
+
+@section endJS{
+    <script>
+        @*var lineChartData = @Html.Raw(lineChartData);*@
+window.onload = function () {
+    //linechart
+    lineChartData.forEach((element) => {
+        var info = {
+            label: element.Name,
+            borderColor: element.BorderColor,
+            pointBorderColor: element.PointBackgroundColor,
+            pointBackgroundColor: element.PointBackgroundColor,
+            pointHoverBackgroundColor: "#E2C092",
+            pointHoverBorderColor: "rgba(220,220,220,1)",
+            pointBorderWidth: 1,
+            fill: false,
+            data: element.Data,
+        };
+        this.chart.data.datasets.push(info)
+    });
+
+    chart.update();
+}
+
+
+
+
+var ctx = document.getElementById("MyChart");
+var chart = new Chart(ctx, {
+    type: "line",
+    data: {
+        @*labels: @Html.Raw(lineChartLabel),*@
+        labels: ["美甲", "美睫", "美體", "紋繡", "除毛"],
+        datasets: []
+                      },
+options: {
+    responsive: true,
+        title: {
+        display: true,
+            fontSize: 26
+    },
+    tooltips: {
+        mode: 'point',
+            intersect: true,
+                    },
+    legend: {
+        position: 'bottom',
+            labels: {
+            fontColor: 'black',
+                        }
+    }
+}
+            });
+
+
+@*var ctx2JS =  @Html.Raw(radarChart);*@
+var ctx2 = document.getElementById("MyChart2");
+var data = {
+    //labels: ctx2JS[0].Labels,
+    labels: ["美甲", "美睫", "美體", "紋繡", "除毛"],
+    datasets: [{
+        label: '服務項目數',
+        backgroundColor: "rgba(3, 88, 106, 0.2)",
+        borderColor: "rgba(3, 88, 106, 0.80)",
+        pointBorderColor: "rgba(3, 88, 106, 0.80)",
+        pointBackgroundColor: "rgba(3, 88, 106, 0.80)",
+        pointHoverBackgroundColor: "#fff",
+        pointHoverBorderColor: "rgba(220,220,220,1)",
+        //data: ctx2JS[0].Datasets[0].Data
+        data: [58, 28, 30, 8, 36]
+    }],
+};
+
+var canvasRadar = new Chart(ctx2, {
+    type: 'radar',
+    data: data,
+});
+
+
+var ctx3 = document.getElementById("MyChart3");
+var lineChart = new Chart(ctx3, {
+    type: 'bar',
+    data: {
+        @*labels: @Html.Raw(barLables),*@
+        labels: ["美甲","美睫","美體","紋繡","除毛"],
+        datasets: [{
+                    label: '業續加總',
+                    backgroundColor: '#E2C092',
+                    borderColor: "rgba(38, 185, 154, 0.7)",
+                    pointBorderColor: "rgba(38, 185, 154, 0.7)",
+                    pointBackgroundColor: "rgba(38, 185, 154, 0.7)",
+                    pointHoverBackgroundColor: "#fff",
+                    pointHoverBorderColor: "rgba(220,220,220,1)",
+                    pointBorderWidth: 1,
+                    @*data:@Html.Raw(barData),*@
+                    data:[58000,28000,30000,82000,66000]
+                    }],
+            },
+        });
+
+
+
+var ctx4 = document.getElementById("MyChart4");
+var data = {
+    datasets: [{
+        //data: ctx2JS[0].Datasets[0].Data,
+        data: [58, 28, 30, 8, 36],
+        backgroundColor: [
+            "#455C73",
+            "#9B59B6",
+            "#BDC3C7",
+            "#26B99A",
+            "#3498DB"
+        ],
+        label: 'My dataset' // for legend
+    }],
+    //labels: ctx2JS[0].Labels
+    lables: ["美甲", "美睫", "美體", "紋繡", "除毛"]
+};
+
+var pieChart = new Chart(ctx4, {
+    data: data,
+    type: 'pie',
+    otpions: {
+        legend: false
+    }
+});
+
+    </script>
+}

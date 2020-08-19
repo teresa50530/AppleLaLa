@@ -1,0 +1,131 @@
+
+/* .col .add_col {
+    display: flex;
+    justify-content: center;
+} */
+.card .pic {
+    width: 20em;
+    height: 20em;
+    overflow: hidden;
+    border-radius: 20px;
+    margin-top: 10px;
+    position: relative;
+}
+
+
+.col-12 {
+    height: 800px;
+    /*background-color: #dbf5ef;*/
+    position: relative;
+}
+
+
+.allcard {
+    left: 0;
+    right: 0;
+    position: relative;
+}
+
+
+.card-body ul {
+    padding: 0px;
+    /*margin: 0 0 0 25px;*/
+}
+
+
+
+.card-body li {
+    list-style: none;
+    padding: 0;
+    padding: 1px 0;
+}
+
+
+.card-body {
+    /* display: block; */
+    /* margin: 0 10px 0 75px; */
+    /* padding: left 0; */
+    color: black;
+}
+
+
+.card {
+    box-shadow: 0px 0.3px 10px 0px rgba(0, 0, 0, 0.1);
+    margin-top: 100px;
+}
+
+
+.left_card {
+    position: absolute;
+    left: 20%;
+}
+
+
+.right_card {
+    position: absolute;
+    right: 20%;
+}
+
+
+.card:hover {
+    background-color: #e2c092;
+}
+
+
+.info {
+    /* margin: 0 40px 0 120px; */
+    display: block;
+    /* padding-top: 40px; */
+}
+
+
+.telwrap {
+    display: flex;
+}
+
+
+.tel_info > p {
+    margin: 3px 5px;
+    line-height: 20px
+}
+
+
+.tel > i {
+    margin-right: 6px
+}
+
+
+.add > i {
+    margin: 0 9px 0 2px
+}
+
+
+.time > i {
+    margin-right: 6px
+}
+
+
+@media screen and (max-width:768px) {
+    .card .pic {
+        width: 19rem;
+    }
+
+
+    /* .info {
+        margin: 0 40px;
+    } */
+    .card-body {
+        margin: 0 10px;
+    }
+
+
+    .right_card {
+        position: absolute;
+        right: -2.3%;
+    }
+
+    .left_card {
+        position: absolute;
+        left: -2.3%;
+    }
+}

@@ -1,0 +1,95 @@
+﻿@model MVC_AppleLaLa.Models.PayModels.SpgatewayOutputDataModel
+
+@{
+    ViewBag.Title = "SpgatewayReturn";
+    Layout = "~/Views/Shared/_LayoutEmpty.cshtml";
+}
+
+@section topCSS{
+    <link href="~/Assets/css/SpgatewayReturn.css" rel="stylesheet" />
+}
+<div class="active">
+    <div class="floating">
+        <div class="thickness"></div>
+        <div class="thickness"></div>
+        <div class="thickness"></div>
+        <div class="card_body">
+            <div class="paypal_center svg"></div>
+            <div class="logo ">
+                <img src="~/Assets/image/Logo_light.png" />"
+            </div>
+            <div class="svg"></div>
+            <div class="paywave svg"></div>
+            <div class="chips svg"></div>
+            <div class="card_no text">
+              0000-0000-0000-0000
+            </div>
+            <div class="valid text">
+                VALID <br> THUR
+            </div>
+            <div class="valid_date text">
+                04/22
+            </div>
+            <div class="holder text"></div>
+            <div class="mastercard_icon svg"> </div>
+        </div>
+    </div>
+</div>
+
+<div class="two_btn p-10">
+    
+    <a class="go_back_home btn" href="/Home/Index">
+        <div class="border-left">
+            <span class="arrow-top"></span>
+            <span class="arrow-bottom"></span>
+        </div>
+        <div class="border-top"></div>
+        <div class="border-right"></div>
+        <div class="border-bottom"></div>
+        <div class="border-bottom-left"></div>
+        <div class="border-top-left"></div>
+        返回首頁
+    </a>
+
+    <a class="check_order btn" href="/AccountDetail/Index">
+        <div class="border-left">
+            <span class="arrow-top"></span>
+            <span class="arrow-bottom"></span>
+        </div>
+        <div class="border-top"></div>
+        <div class="border-right"></div>
+        <div class="border-bottom"></div>
+        <div class="border-bottom-left"></div>
+        <div class="border-top-left"></div>
+        查看訂單紀錄
+    </a>
+
+
+</div>
+
+
+@section endJS{
+
+    <script>
+        document.addEventListener('mousemove', function (event) {
+            let card_x = getTransformValue(event.clientX, window.innerWidth, 56);
+            let card_y = getTransformValue(event.clientY, window.innerHeight, 56);
+            let shadow_x = getTransformValue(event.clientX, window.innerWidth, 20);
+            let shadow_y = getTransformValue(event.clientY, window.innerHeight, 20);
+            let text_shadow_x = getTransformValue(event.clientX, window.innerWidth, 28);
+            let text_shadow_y = getTransformValue(event.clientY, window.innerHeight, 28);
+            $(".floating").css("transform", "rotateX(" + card_y / 1 + "deg) rotateY(" + card_x + "deg)");
+            $(".floating").css("box-shadow", -card_x + "px " + card_y / 1 + "px 55px rgba(0, 0, 0, .55)");
+            $(".svg").css("filter", "drop-shadow(" + -shadow_x + "px " + shadow_y / 1 + "px 4px rgba(0, 0, 0, .6))");
+            $(".text").css("text-shadow", -text_shadow_x + "px " + text_shadow_y / 1 + "px 6px rgba(0, 0, 0, .8)");
+        });
+        function getTransformValue(v1, v2, value) {
+            return ((v1 / v2 * value - value / 2) * 1).toFixed(1);
+        }
+        $(function () {
+            setTimeout(function () {
+                $("body").removeClass("active");
+            }, 2200);
+        });
+    </script>
+}

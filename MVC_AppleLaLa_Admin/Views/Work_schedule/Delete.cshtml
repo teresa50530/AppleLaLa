@@ -1,0 +1,150 @@
+﻿@model List<MVC_AppleLaLa_Admin.ViewModels.Designer_Schedule.DS_ViewModel>
+
+@{
+    ViewBag.Title = "Edit";
+
+    var AllData = Model.GroupBy((x) => new { x.DesignerId, x.WorkDate });
+}
+
+<h2>刪除班表</h2>
+
+@*@using (Html.BeginForm())
+    {*@
+@Html.AntiForgeryToken()
+<div class="table-responsive">
+    @*<form action="/Work_schedule/Edit" method="post">*@
+    <table class="table table-striped jambo_table bulk_action scheduleRow_title">
+        <thead class="scheduleThead">
+            <tr class="headings text-center">
+                <th class="designer_title column-title">日期</th>
+                <th class="designer_title column-title">設計師</th>
+                <th class="session_title column-title" value="1">11:00 </th>
+                <th class="session_title column-title" value="2">12:00 </th>
+                <th class="session_title column-title" value="3">13:00 </th>
+                <th class="session_title column-title" value="4">14:00 </th>
+                <th class="session_title column-title" value="5">15:00 </th>
+                <th class="session_title column-title" value="6">16:00 </th>
+                <th class="session_title column-title" value="7">17:00 </th>
+                <th class="session_title column-title" value="8">18:00 </th>
+                <th class="session_title column-title" value="9">19:00 </th>
+                <th class="session_title column-title" value="10">20:00 </th>
+                <th class="session_title column-title" value="11">21:00 </th>
+                <th class="bulk-actions" colspan="7">
+                    <a class="antoo" style="color:#fff; font-weight:500;">Bulk Actions ( <span class="action-cnt"> </span> ) <i class="fa fa-chevron-down"></i></a>
+                </th>
+            </tr>
+        </thead>
+        <tbody class="scheduleTbody">
+
+            @foreach (var name in AllData)
+            {
+
+                <tr class="even pointer text-center schedule_row_tr" value=" @name.Key.WorkDate.ToShortDateString()">
+                    <td class="a-center ">
+                        <input class="text-center input_date" type="text" name="WorkDate" readonly="readonly" value=" @name.Key.WorkDate.ToShortDateString()" />
+                    </td>
+                    <td class="a-center ">
+                        <input class="text-center input_id" type="text" name="DesignerId" readonly="readonly" value=" @name.Key.DesignerId " />
+                    </td>
+                    @foreach (var item in name)
+                    {
+                        for (int i = 1; i < 12; i++)
+                        {
+                            if (item.SessionId == i)
+                            {
+                                if (item.WorkFlag == "Y")
+                                {
+                                    <td class="icon_onwork" value="@i"><i class="fas fa-circle"></i></td>
+                                }
+                                else
+                                {
+                                    <td class="icon_onwork" value="@i"></td>
+                                }
+                            }
+
+                        }
+                    }
+                </tr>
+            }
+
+
+        </tbody>
+    </table>
+    @foreach (var name in AllData)
+    {
+        @*<button class="btn btn-warning deleteBtn"> 確認刪除 </button>*@
+        @*<div class="col-md-offset-2 col-md-10">
+
+                @Html.ActionLink("刪除", "Delete", new { id = @name.Key.DesignerId, year = @name.Key.WorkDate.Year, month = @name.Key.WorkDate.Month, day = @name.Key.WorkDate.Day }, new { @class = "btn del_btn" })
+            </div>*@
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="確認修改" class="btn deleteBtn btn-warning btn-lg btn-block" />
+        </div>
+
+    }
+
+    @*</form>*@
+</div>
+<div>
+    @Html.ActionLink("返回班表", "Index")
+</div>
+
+@section endJS{
+    <script>
+        let deleteBtn = document.querySelector('.deleteBtn');
+        
+        //let year = a.getFullYear();
+        //let month = a.getMonth() + 1;
+        //let day = a.getDate();
+        
+
+        deleteBtn.addEventListener('click', Getdate);
+
+
+        function Getdate() {
+            //alert('getdate function');
+            
+            let input_id = document.querySelector('.input_id').value;
+            var input_date = document.querySelector('.input_date').value;
+            var date = Date.parse(input_date);
+
+            var temp = date / 1000 
+            let p = 0;
+            p = temp + 86400;
+            var newTime = new Date(p * 1000).toISOString();
+            let t = newTime.substring(0, 10);
+
+            //let url = '/Delete/' + input_id + '-' + year + '-' + month + '-' + day;
+            //window.location.href = url;
+            //debugger;
+            let data = {
+                'Id': input_id,
+                'Date': date
+            }
+
+            $.ajax({
+                url: '/Work_schedule/Delete',
+                type: 'post',
+                data: { inputjson: JSON.stringify(data) },
+                
+                dataType: 'json',
+                success: function () {
+                    alert('刪除成功');
+                    window.location.href = '/Work_schedule/Index' //這裡有問題,跳不進success,而是跳往error
+
+
+                },
+                error: function () {
+                    window.location.href = '/Work_schedule/Index'
+                }
+            });
+
+        }
+
+        
+
+        
+
+
+    </script>
+}

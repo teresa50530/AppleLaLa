@@ -1,0 +1,89 @@
+﻿.servie_title_photo {
+    background-position: right 57% top 35%;
+}
+
+.reservation_container{
+    margin-top: 10%;
+}
+
+.Latest_project_title {
+    text-shadow: 0px 3px 0px #b2a98f, 0px 14px 10px rgba(0,0,0,0.15), 0px 24px 2px rgba(0,0,0,0.1), 0px 34px 30px rgba(0,0,0,0.1);
+    color: #e2c092;
+}
+
+.most_popular_title {
+    max-width: fit-content;
+    background-color: white;
+    color: var(--title-white-color);
+    text-shadow: black 0.1em 0.1em 0.2em;
+}
+.sign_up_btn{
+    margin:10% 0 0 44%;
+    z-index:23;
+}
+.sign_up_btn:hover {
+    opacity: .7;
+}
+.subscribe_animate{
+    padding-left:3%;
+}
+
+.subscribe_animate span{
+    max-width:fit-content;
+}
+
+.ml4 {
+    position: relative;
+    font-weight: 900;
+    font-size: 2.5em;
+    cursor: default;
+}
+
+.service_photo{
+    height:352px;
+}
+
+.arrow_down_img {
+    min-width: 6%;
+}
+
+.ml4 .letters {
+    position: absolute;
+    margin: auto;
+    left: 0;
+    top: 0.3em;
+    right: 0;
+    opacity: 0;
+    cursor: default;
+}
+
+.color_type_div{
+    width:35px;
+    height:35px;
+    border-radius:99em;
+    border:1px solid;
+    margin:2% 0 0 5%;
+}
+
+.color_group_div{
+    display:flex;
+}
+
+@media screen and (max-width:768px) {
+    .sign_up_btn {
+        margin: 30% 0 0 30%;
+    }
+
+    .servie_title_photo {
+        background-position: right 57% top 10%;
+    }
+
+    .Latest_project_title{
+        font-size:46px;
+    }
+
+    .subscribe_animate h1{
+        font-size:17px;
+    }
+}
+

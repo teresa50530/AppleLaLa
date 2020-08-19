@@ -1,0 +1,53 @@
+﻿@model MVC_AppleLaLa.Models.Account_List_ViewModel
+
+
+@{
+    var _order = ViewBag.Order;
+
+
+}
+
+
+
+<table class="table">
+
+    <tr>
+        <td>
+            訂單標號
+        </td>
+        <td>
+            建立日期
+        </td>
+        <td>
+            價格
+        </td>
+        <td>
+            付款狀態
+        </td>
+        <td>
+            查詢明細
+        </td>
+    </tr>
+    @foreach (var item in _order)
+    {
+        <tr>
+            <td>
+                @item.Order_id
+            </td>
+            <td>
+                @item.Last_updata_date
+            </td>
+            <td>
+                @item.Price
+            </td>
+            <td>
+                已完成
+            </td>
+            <td>
+                @Html.ActionLink("Search","Order_detail",new{ordernum = item.Order_id,Total=item.Price},new{ @class = "btn-wipe"})
+            </td>
+        </tr>
+    }
+
+</table>
+

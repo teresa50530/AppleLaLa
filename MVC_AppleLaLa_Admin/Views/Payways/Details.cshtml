@@ -1,0 +1,29 @@
+﻿@model MVCDataLibrary.DB_Model.Payway
+
+@{
+    ViewBag.Title = "Details";
+}
+
+@section topCSS{
+    <link href="~/Assets/css/tables.css" rel="stylesheet" />
+}
+
+<h2>付款詳細資料</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal horizontal">
+        <dt>
+            付款方式
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("前往修改資料", "Edit", new { id = Model.Payway_id }) |
+    @Html.ActionLink("回到列表", "Index")
+</p>

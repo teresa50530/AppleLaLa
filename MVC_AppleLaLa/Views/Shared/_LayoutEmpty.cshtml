@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AppleLaLa⁺</title>
+    <!-- Favicon -->
+    <link href="~/Assets/image/logo.ico" rel="shortcut icon" type="image/x-icon" />
+
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+    <!-- anonymous -->
+    <script src="https://kit.fontawesome.com/44b0cfe14b.js" crossorigin="anonymous"></script>
+    @*<link href="~/Assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Assets/css/font-awesome.min.css" rel="stylesheet" />*@
+    <link href="~/Assets/css/jquery-ui.min.css" rel="stylesheet" />
+    <link href="~/Assets/css/flaticon.css" rel="stylesheet" />
+    <link href="~/Assets/css/owl.carousel.css" rel="stylesheet" />
+    <link href="~/Assets/css/style.css" rel="stylesheet" />
+    <link href="~/Assets/css/animate.css" rel="stylesheet" />
+
+    @RenderSection("topCSS", required: false)
+    @RenderSection("topJS", required: false)
+
+</head>
+<body>
+    @*這一頁小手千萬別亂動*@
+
+    <!-- Page Preloder -->
+    <div id="preloder">
+        <div class="loader"></div>
+    </div>
+
+    @RenderBody()
+
+    @*@Scripts.Render("~/Assets/js")*@
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    <script src="~/Assets/js/owl.carousel.min.js"></script>
+    <script src="~/Assets/js/circle-progress.min.js"></script>
+    <script src="~/Assets/js/main.js"></script>
+
+    @RenderSection("Scripts", required: false)
+    @RenderSection("endCSS", required: false)
+    @RenderSection("endJS", required: false)
+
+</body>
+</html>

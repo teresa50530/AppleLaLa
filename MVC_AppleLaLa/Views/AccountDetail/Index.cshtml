@@ -1,0 +1,111 @@
+﻿@model MVC_AppleLaLa.Models.Account_List_ViewModel
+@using System.Web.UI.WebControls
+
+@section topCSS{
+    <link href="~/Assets/css/Account_Detail.css" rel="stylesheet" />
+}
+
+<ul class="account_detail_nav">
+    <li>@Html.ActionLink("精選商品頁", "index", "Collections")</li>
+    <li>@Html.ActionLink("聯絡我們", "index", "Contact")</li>
+    <li>@Html.ActionLink("回首頁逛逛", "index", "Home")</li>
+</ul>
+
+<ul class="nav nav-tabs account_ul" id="myTab" role="tablist">
+    <li class="nav-item" role="presentation">
+        <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home"
+           aria-selected="true">會員資料</a>
+    </li>
+    <li class="nav-item" role="presentation">
+        <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab"
+           aria-controls="profile" aria-selected="false">折價券</a>
+    </li>
+    <li class="nav-item" role="presentation">
+        <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab"
+           aria-controls="contact" aria-selected="false">消費紀錄</a>
+    </li>
+</ul>
+<div class="tab-content">
+    <div class="tab-pane fade active show" id="home">
+        <div class="_fa-edit">
+            <i class="fas fa-edit fa-2x" title="編輯"></i>
+        </div>
+        @using (Html.BeginForm("Index", "AccountDetail", FormMethod.Post))
+        {
+            <div class="container account_container">
+                <div class="row row_header">
+                    <h1 style=" color: var(--title-white-color);">會員資料 &nbsp;</h1>
+                    <h3 style="color:var( --title-white-color);">AppleLaLa</h3>
+                </div>
+                <div class="row row_body">
+                    <ul>
+                        <li>
+                            <p class="left">
+                                @Html.LabelFor(m => m.Name, new { @class = "input_label" })
+                                @Html.TextBoxFor(m => m.Name, new { PlaceHolder = "王小美", disabled = "true", Type = "text" })
+                                @Html.ValidationMessageFor(m => m.Name, "", new { @class = "text-danger" })
+                            </p>
+                        </li>
+                        <li>
+                            <p class="pull-right">
+                                @Html.LabelFor(m => m.Gender, new { @class = "input_label" })
+                                <div>
+                                    男
+                                    @Html.RadioButtonFor(m => m.Gender, "男", new { style = "margin-right:10%", disabled = "true" })
+                                    女
+                                    @Html.RadioButtonFor(m => m.Gender, "女", new { disabled = "true" })
+                                </div>
+                                @Html.ValidationMessageFor(m => m.Gender, "", new { @class = "text-danger", })
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                @Html.LabelFor(m => m.Mobile, new { @class = "input_label" })
+                                @Html.TextBoxFor(m => m.Mobile, new { PlaceHolder = "09xxxxxxxx", disabled = "true" })
+                                @Html.ValidationMessageFor(m => m.Mobile, "", new { @class = "text-danger" })
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                @Html.LabelFor(m => m.Birthday, new { @class = "input_label" })
+                                @{
+                                    var date = Model.Birthday.ToShortDateString();
+
+                                }
+                                @Html.TextBox("Birthday", date, new { value = date, PlaceHolder = "xxxx/xx/xx", disabled = "true" })
+                                @Html.ValidationMessageFor(m => m.Birthday, "", new { @class = "text-danger" })
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                @Html.LabelFor(m => m.Address, new { @class = "input_label" })
+                                @Html.TextBoxFor(m => m.Address, new { PlaceHolder = "台北市大安區忠孝東路三段96號11號樓之1", disabled = "true", Type = "text" })
+                                @Html.ValidationMessageFor(m => m.Address, "", new { @class = "text-danger" })
+                            </p>
+                        </li>
+                        <li>
+                            <div class="divider"></div>
+                        </li>
+                    </ul>
+                        <button class="btn_submit hand " disabled style="outline: none; margin-right:19.1%">提交</button>
+                        <button class="btn_submit" disabled type="reset" style="outline: none;">復原</button>
+                </div>
+            </div>
+        }
+    </div>
+    <div class="tab-pane fade show" id="profile">
+        @Html.Partial("Discount",Model)
+    </div>
+    <div class="tab-pane fade show" id="contact">
+        @Html.Partial("Order",Model)
+    </div>
+</div>
+
+@section endJS{
+    <script src="~/Assets/js/jquery-3.2.1.min.js"></script>
+    <script src="~/Assets/js/AccountDetails.js"></script>
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+
+

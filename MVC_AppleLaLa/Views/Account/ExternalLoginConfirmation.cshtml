@@ -1,0 +1,92 @@
+﻿@model MVC_AppleLaLa.Models.ExternalLoginConfirmationViewModel
+@using CaptchaMvc.HtmlHelpers
+@{
+    ViewBag.Title = "註冊";
+    Layout = "~/Views/Shared/_LayoutEmpty.cshtml";
+}
+
+
+
+@section topCSS{
+    <link href="~/Assets/css/Login_Register.css" rel="stylesheet" />
+    <style>
+        .calendar[type="date"]::-webkit-inner-spin-button {
+            display: none;
+        }
+
+        /*.calendar[type="date"]::-webkit-clear-button {
+            display: none;
+        }*/
+    </style>
+}
+
+
+
+
+
+<div class="container mt-5">
+    <div class="row flex-column align-content-center my-1">
+        <div class="col-10 col-md-6 col-lg-4 site-logo mx-auto my-3">
+            <a href="/Home/Index" class="link-logo">
+                <img src="https://drive.google.com/uc?export=view&id=15DMdZwn6So4x_RuPf8HaDNvJ-75JGjMH" alt="AppleLaLa"
+                     class="applelalalogo">
+            </a>
+        </div>
+    </div>
+    <div class="row flex-column align-content-center">
+        <div class="col-10 col-md-6 col-lg-4 mx-auto my-1 p-0">
+            @using (Html.BeginForm("ExternalLoginConfirmation", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @enctype = "multipart/form-data", @id = "formCaptcha", @class = "form-horizontal", role = "form" }))
+            {
+                @Html.AntiForgeryToken()
+
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <p class="third_login_word">
+                    您已成功使用<strong>@ViewBag.LoginProvider</strong>驗證。
+                    請輸入使用者資料，以使用所有功能。
+                </p>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        @Html.TextBoxFor(m => m.Name, new { @class = "form-control w-65 mt-0", @placeholder = "姓名" })
+                    </div>
+
+                    <div class="form-group col-md-6">
+                        @Html.RadioButton("Sex", "Male", new { @name = "customRadioInline1" })  男
+                        @Html.RadioButton("Sex", "Female", new { @name = "customRadioInline1" }) 女
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        @Html.TextBoxFor(m => m.Birthday, new { @class = "form-control w-40 mr-1 calendar", @placeholder = "生日", onfocus = "(this.type='date')" })
+                    </div>
+                    <div class="form-group col-md-6">
+                        @Html.TextBoxFor(m => m.PhoneNumber, new { @class = "form-control", @placeholder = "手機" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.TextBoxFor(m => m.Email, new { @class = "form-control", @placeholder = "電子郵件" })
+                </div>
+
+                <div class="form-group">
+                    @Html.TextBoxFor(m => m.Address, new { @class = "form-control", @placeholder = "地址" })
+                </div>
+
+                <div class="form-group px-3 col-md-12 d-flex">
+                    @Html.Captcha("", "", 4, "必填", true)
+                </div>
+                <p class="text-danger px-3">@ViewBag.ErrorMessage</p>
+                <div class="form-group">
+                    <input type="submit" class="btn btn-default login_btn w-100" value="完成" />
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+@section endJS{
+    <script src="~/Assets/js/captcha.js"></script>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

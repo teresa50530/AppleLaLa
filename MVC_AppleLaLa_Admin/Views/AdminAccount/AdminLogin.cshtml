@@ -1,0 +1,38 @@
+﻿@model MVC_AppleLaLa_Admin.ViewModels.AdminLoginViewModel
+
+@{
+    ViewBag.Title = "Admin_Login";
+    Layout = "~/Views/Shared/_AdminLogin.cshtml";
+}
+
+
+<div class="login_wrapper">
+    <div class="animate form login_form">
+        <section class="login_content">
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+                <h1>管理員登入</h1>
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                <div class="form-group">
+                    @Html.EditorFor(model => model.UserName, "帳號", new { htmlAttributes = new { @class = "form-control", @placeholder = "帳號", @required = "" } })
+                    @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
+                </div>
+                <div class="form-group">
+                    @Html.EditorFor(model => model.Password, "密碼", new { htmlAttributes = new { @class = "form-control", @placeholder = "密碼", @required = "" } })
+                    @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                </div>
+                <div class="form-group">
+                    <input type="submit" class="btn login_btn" value="登入" />
+                    <span class="goHomePage">
+                        <a href="http://applelala.azurewebsites.net/">
+                            回首頁
+                        </a>
+                    </span>
+                </div>
+            }
+        </section>
+    </div>
+</div>

@@ -1,0 +1,96 @@
+﻿@model MVCDataLibrary.DB_Model.Protfolio
+
+@{
+    ViewBag.Title = "Details";
+}
+
+@section topCSS{
+    <link href="~/Assets/css/tables.css" rel="stylesheet" />
+}
+
+<h2>作品集詳細資料</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal horizontal">
+        <dt>
+            設計師名稱
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Designer.Account)
+        </dd>
+
+        <dt>
+            作品集名稱
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Service_details.Name)
+        </dd>
+
+        <dt>
+            作品集
+        </dt>
+
+        <dd>
+            <img src="@Html.DisplayFor(model => model.Photo_url)" alt="暫無" style="width:400px;height:400px" />
+        </dd>
+        <dd>
+            <a href="@Html.DisplayFor(model => model.Photo_url)">@Html.DisplayFor(model => model.Photo_url)</a>
+        </dd>
+
+        <dt>
+            年
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Year)
+        </dd>
+
+        <dt>
+            月
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Month)
+        </dd>
+
+        <dt>
+            顏色類別
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Color_type)
+        </dd>
+
+        <dt>
+            描述
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            建立日期
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Create_date)
+        </dd>
+
+        <dt>
+            最後更新日期
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Last_updata_date)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("前往修改資料", "Edit", new { id = Model.Protfolio_id }) |
+    @Html.ActionLink("回到列表", "Index")
+</p>

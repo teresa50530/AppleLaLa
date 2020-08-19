@@ -1,0 +1,50 @@
+﻿@model MVCDataLibrary.DB_Model.Designer_service
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Designer_service</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Designer.Account)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Designer.Account)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Service.Service_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Service.Service_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Service_details.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Service_details.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Service_types.Type_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Service_types.Type_name)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

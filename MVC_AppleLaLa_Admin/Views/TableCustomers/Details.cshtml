@@ -1,0 +1,77 @@
+﻿@model MVCDataLibrary.DB_Model.Customer
+
+@{
+    ViewBag.Title = "Details";
+}
+
+@section topCSS{
+    <link href="~/Assets/css/tables.css" rel="stylesheet" />
+}
+
+<h2>客戶詳細資料</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal horizontal">
+        <dt>
+            帳戶
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Account)
+        </dd>
+
+        <dt>
+            名稱
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            生日
+        </dt>
+
+        <dd>
+            @Model.Birthday.ToString("yyyy/MM/dd")
+        </dd>
+
+        <dt>
+            地址
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Address)
+        </dd>
+
+        <dt>
+            行動電話
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Mobile)
+        </dd>
+
+        <dt>
+            性別
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Gender)
+        </dd>
+
+        <dt>
+            最後更新日期
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Last_updata_date)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("前往修改資料", "Edit", new { id = Model.Cust_id }) |
+    @Html.ActionLink("回到列表", "Index")
+</p>

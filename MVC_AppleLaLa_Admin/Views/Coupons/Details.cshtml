@@ -1,0 +1,48 @@
+﻿@model MVCDataLibrary.DB_Model.Coupon
+
+@{
+    ViewBag.Title = "Details";
+}
+
+@section topCSS{
+    <link href="~/Assets/css/tables.css" rel="stylesheet" />
+}
+
+<h2>優惠券詳細資料</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal horizontal">
+        <dt>
+            優惠券名稱
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Coupon_name)
+        </dd>
+
+        <dt>
+            折扣
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Discount)
+        </dd>
+
+        <dt>
+            優惠券樣式
+        </dt>
+
+        <dd>
+            <img src="@Html.DisplayFor(model => model.Pic)" alt="暫無" style="width:400px;height:400px" />
+        </dd>
+        <dd>
+            <a href="@Html.DisplayFor(model => model.Pic)">@Html.DisplayFor(model => model.Pic)</a>
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("前往修改資料", "Edit", new { id = Model.Coupon_id }) |
+    @Html.ActionLink("回到列表", "Index")
+</p>

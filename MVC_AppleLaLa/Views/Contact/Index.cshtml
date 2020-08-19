@@ -1,0 +1,84 @@
+﻿@model IEnumerable<MVC_AppleLaLa.ViewModels.Contant.ContactViewModel>
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<!-- Page info section -->
+<section class="page-info-section set-bg contact_session" data-setbg="https://drive.google.com/uc?export=view&id=119fa0F7ROXrfQs1fxmgUeqeQBvLw4HDx">
+    <div class="container text-center">
+        <h2>聯繫我們</h2>
+    </div>
+</section>
+<!-- Page info section end -->
+<!-- Contact section -->
+<section class="contact-section spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 contact-content">
+                <h2 class="contact-title">店面資訊</h2>
+                <p>
+                    體驗生活需始於足下，
+                    <br>
+                    用心傾聽真實的自己；
+                    <br>
+                    妳需要的是跨出第一步，
+                    <br>
+                    從現在起，比別人更愛自己。
+                </p>
+                <div class="ci-item">
+                    <div class="ca-icon">
+                        <img src="~/Assets/image/icons/map.png" />
+                    </div>
+                    <div class="ca-text">
+                        桃園區永福西街121號1F(近大湳廣豐商圈)
+                        <br>桃園區寶慶路58號2F(近藝文展演特區)
+                    </div>
+                </div>
+                <div class="ci-item">
+                    <div class="ca-icon">
+                        <img src="~/Assets/image/icons/phone.png" />
+                    </div>
+                    <div class="ca-text">
+                        手機：0912-223-349
+                        <br>市話：03-361-2466
+                    </div>
+                </div>
+            </div>
+            <div class="col-12  col-lg-6 wrap d-flex">
+                @foreach (var item in Model)
+                {
+                    <div class="card ml-2">
+                        <img src="@item.Photo" alt="LocationImg_first" class="card-img-top" />
+                        <div class="card-body">
+                            <h5 class="card-title">@item.Store</h5>
+                            <p class="card-text">
+                                <ul>
+                                    <li>
+                                        <i class="fas fa-phone-alt"></i>電話:@item.Phone
+                                        <br>@item.Tel
+                                    </li>
+                                    <li>
+                                        <i class="fas fa-map-marker-alt"></i>地址: @item.Adderss
+                                        <br>(@item.Description)
+                                    </li>
+                                    <li class="time">
+                                        <i class="fas fa-clock"></i>營業時間: 11:00~20:00
+                                        <br>(週日公休)
+                                    </li>
+                                </ul>
+                            </p>
+
+                        </div>
+                    </div>
+                }                
+            </div>
+        </div>
+        <div class="map-area" id="map-canvas"></div>
+    </div>
+</section>
+<!-- Contact section end -->
+@section endJS{
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAlKWP4uWjQIR3WDAWLAu6rUhBfc3_ppag"></script>
+    <script src="~/Assets/js/map.js"></script>
+}

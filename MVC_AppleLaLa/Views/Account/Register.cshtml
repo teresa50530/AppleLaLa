@@ -1,0 +1,104 @@
+﻿@model MVC_AppleLaLa.Models.RegisterViewModel
+@using MVC_AppleLaLa.Models
+@using CaptchaMvc.HtmlHelpers
+
+@{
+    ViewBag.Title = "註冊";
+    Layout = "~/Views/Shared/_LayoutEmpty.cshtml";
+}
+
+@section topCSS{
+    <link href="~/Assets/css/Login_Register.css" rel="stylesheet" />
+    <style>
+        .calendar[type="date"]::-webkit-inner-spin-button {
+            display: none;
+        }
+
+        .calendar[type="date"]::-webkit-clear-button {
+            display: none;
+        }
+    </style>
+}
+
+
+
+<div class="container mt-5">
+    <div class="row flex-column align-content-center my-1">
+        <div class="col-10 col-md-6 col-lg-4 site-logo mx-auto my-3">
+            <a href="/Home/Index" class="link-logo">
+                <img src="https://drive.google.com/uc?export=view&id=15DMdZwn6So4x_RuPf8HaDNvJ-75JGjMH" alt="AppleLaLa"
+                     class="applelalalogo">
+            </a>
+        </div>
+    </div>
+    <div class="row flex-column align-content-center">
+        <div class="col-10 col-md-6 col-lg-4 login_top w-100 p-2 border_all">
+            <h3>+ JOIN US</h3>
+            <h5>加入會員可得到更多折扣優惠，免費註冊</h5>
+        </div>
+        <div class="col-10 col-md-6 col-lg-4 mx-auto p-0 border_all border-top-0 login_content">
+            @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @enctype = "multipart/form-data", @id = "formCaptcha", @class = "form-horizontal", role = "form" }))
+            {
+                @Html.AntiForgeryToken()
+            <div class="login_content my-2">
+                @Html.ValidationSummary("", new { @class = "text-danger px-3" })
+                <div class="form-row px-3">
+                    <div class="form-group col-md-6">
+                        @Html.TextBoxFor(m => m.Name, new { @class = "form-control w-65 mt-0", @placeholder = "姓名" })
+                    </div>
+                    <div class="form-group col-md-6">
+                        @Html.RadioButton("Sex", "Male", new { @name = "customRadioInline1" })  男
+                        @Html.RadioButton("Sex", "Female", new { @name = "customRadioInline1" }) 女
+                    </div>
+                </div>
+                <div class="form-row px-3">
+                    <div class="form-group col-md-6">
+                        @Html.TextBoxFor(m => m.Birthday, new { @class = "form-control w-40 mr-1 calendar", @placeholder = "生日", onfocus = "(this.type='date')" })
+                    </div>
+                    <div class="form-group col-md-6">
+                        @Html.TextBoxFor(m => m.PhoneNumber, new { @class = "form-control", @placeholder = "手機" })
+                    </div>
+                </div>
+                <div class="form-group px-3">
+                    @Html.TextBoxFor(m => m.Email, new { @class = "form-control", @placeholder = "電子郵件" })
+                </div>
+                <div class="form-row px-3">
+                    <div class="form-group col-md-6">
+                        @*<div class="password_tip position-relative text-danger">12</div>*@
+                        @Html.PasswordFor(m => m.Password, new { @class = "form-control w-40 mr-1 password", @placeholder = "會員密碼" })
+                        <div class="password_tip">
+                            <div class="megbox_top"></div>
+                            <div class="megbox_meg">
+                                <ul class="megbox_txt">
+                                    <li>請混合使用 6 個字元以上的大寫和小寫字母、數字和符號。</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-6">
+                        @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control", @placeholder = "確認密碼" })
+                    </div>
+                </div>
+                <div class="form-group px-3">
+                    @Html.TextBoxFor(m => m.Address, new { @class = "form-control", @placeholder = "地址" })
+                </div>
+                <div class="form-group px-3 col-md-12 d-flex">
+                    @Html.MathCaptcha("", "", "必填", true)
+                </div>
+                <p class="text-danger px-3">@ViewBag.ErrorMessage</p>
+                <div class="form-group px-3 my-2">
+                    <input type="submit" value="註冊" class="login_btn btn w-100" />
+                </div>
+            </div>
+            }
+        <section id="socialLoginForm">
+            @Html.Partial("_ExternalLoginsListPartial", new ExternalLoginListViewModel { ReturnUrl = ViewBag.ReturnUrl })
+        </section>
+        </div>
+    </div>
+</div>
+
+@section endJS{
+    <script src="~/Assets/js/MathCaptcha.js"></script>
+    <script src="~/Assets/js/tips.js"></script>
+}

@@ -1,0 +1,28 @@
+﻿@model IEnumerable<MVC_AppleLaLa.ViewModels.Choose_services_list_vm>
+
+@{
+    var list_title = Model.Select((x) => new { x.Id, x.ServiceTitle }).Distinct();
+}
+
+
+@foreach (var item in list_title)
+{
+    <div id="collapse_@item.Id" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+        <div class="card-body p-0">
+
+            <div class="card_service_list py-xl-3">
+                <div class="header service_card_header p-xl-2">
+                    <h3 class="service_card_header_title text-center my-xl-2 ">@item.ServiceTitle</h3>
+                </div>
+                @{ 
+                    var card_detail = Model.Where((x) => x.ServiceTitle == @item.ServiceTitle);
+                }
+                @Html.Partial("_service_list_cardbody_Partial",card_detail)
+
+            </div>
+
+
+
+        </div>
+    </div>
+}

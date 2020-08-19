@@ -1,0 +1,64 @@
+﻿@model MVCDataLibrary.DB_Model.Banner
+
+@{
+    ViewBag.Title = "Details";
+}
+
+@section topCSS{
+    <link href="~/Assets/css/tables.css" rel="stylesheet" />
+}
+
+<h2>詳細資料</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal horizontal">
+        <dt>
+            標題
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+
+        <dt>
+            副標題
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sut_title)
+        </dd>
+
+        <dt>
+            文本
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Text)
+        </dd>
+
+        <dt>
+            圖片連結
+        </dt>
+
+        <dd>
+            <img src="@Html.DisplayFor(model => model.Banner_photo_url)" alt="暫無" style="width:400px;height:400px" />
+        </dd>
+        <dd>
+            <a href="@Html.DisplayFor(model => model.Banner_photo_url)">@Html.DisplayFor(model => model.Banner_photo_url)</a>
+        </dd>
+
+        <dt>
+            最後更新日期
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Last_updata_date)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("前往修改資料", "Edit", new { id = Model.Banner1 }) |
+    @Html.ActionLink("回到列表", "Index")
+</p>

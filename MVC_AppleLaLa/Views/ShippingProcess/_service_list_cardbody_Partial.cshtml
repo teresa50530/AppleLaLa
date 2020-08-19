@@ -1,0 +1,33 @@
+﻿@model IEnumerable<MVC_AppleLaLa.ViewModels.Choose_services_list_vm>
+
+
+
+@foreach (var item in Model)
+{
+    <div class="collapse_service_card_body">
+        <div class="service_card_body p-xl-5">
+            <div class="service_list d-lg-flex justify-content-lg-between">
+                <div class="service_text_block d-lg-inline-table align-self-center">
+                    <div class="service_title_block">
+                        <h3 class="product_title mb-lg-0">@item.ServiceDetail</h3>
+                    </div>
+                </div>
+                <div class="service_list_info py-2">
+                    <div class="service_info_block d-flex px-lg-4 ">
+                        <ul class="mb-0 d-lg-flex">
+                            <li class="px-lg-2 product_duration ">@item.WorkDuration 小時</li>
+                            <li class="px-lg-2 product_price ">$@item.DiscountPrice | $@item.Price</li>
+                        </ul>
+                    </div>
+                    <div class="btn_service_block text-right d-lg-inline-block d-lg-flex">
+                        <label class="checkbox">
+                            <input type="checkbox" class="services checkbox__input" value="@item.ServiceDetail">
+                            <span class="checkbox__label">立即預約</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+

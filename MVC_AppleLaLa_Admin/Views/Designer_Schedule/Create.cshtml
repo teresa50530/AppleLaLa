@@ -1,0 +1,88 @@
+﻿@model MVC_AppleLaLa_Admin.ViewModels.Designer_Schedule.Designer_Schedule_ViewModel
+@*@model IEnumerable< MVC_AppleLaLa_Admin.ViewModels.Designer_Schedule.Designer_Schedule_ViewModel>*@
+
+@{
+    ViewBag.Title = "Create";
+    //var designer = ViewBag.designer;
+    //var session = ViewBag.session;
+}
+
+<h2 class="text-danger">新增班表資料</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+<div class="form-horizontal">
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+    @*<div class="form-group">
+            @Html.LabelFor(model => model.AllDesignerId, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("Designer_id", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.AllDesignerId, "", new { @class = "text-danger" })
+            </div>
+        </div>*@
+
+    @*<div class="form-group">
+        @Html.LabelFor(model => model.AllSession, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownList("Session_id", null, htmlAttributes: new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.AllSession, "", new { @class = "text-danger" })
+        </div>
+    </div>*@
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.WorkDate, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.WorkDate, new { htmlAttributes = new { @class = "form-control date" } })
+            @Html.ValidationMessageFor(model => model.WorkDate, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.WorkFlag, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            <select class="w-100 py-1" style="border-color:#ced4da">
+                <option value="value">Y</option>
+                <option value="value">N</option>
+            </select>
+            @Html.ValidationMessageFor(model => model.WorkFlag, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="確定新增" class="btn btn-warning submitBtn" />
+        </div>
+    </div>
+</div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section endJS{
+    <script>
+                //let designerId = document.getElementsByClassName('designerId')[0].getAttribute('value');
+                //let session = document.getElementsByClassName('session')[0].getAttribute('value');
+                //let date = document.getElementsByClassName('date')[0].getAttribute('value');
+                //let onWork = document.getElementsByClassName('onWork')[0].getAttribute('value');
+                //let submitBtn = document.getElementsByClassName('submitBtn')[0];
+                //submitBtn.addEventListener('click', () => {
+                //    let inputjson = [{ "ID": designerId }, { "Session": session }, { "Date": date }, { "OnWork": onWork }];
+                //    $.ajax({
+                //        url: '/Designer_Schedule/Create',
+                //        type: 'post',
+                //        data: { inputjson: JSON.stringify(inputjson) },
+                //        dataType: 'text',
+                //        success: function () {
+                //            alert('新增成功');
+                //        }
+                //    });
+
+                //});
+    </script>
+}

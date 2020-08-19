@@ -1,0 +1,343 @@
+﻿@model IEnumerable<MVC_AppleLaLa_Admin.ViewModels.Designer_Schedule.DS_ViewModel>
+@{
+    ViewBag.Title = "Index";
+    //var allData = Model.GroupBy((x) => x.Name);
+}
+
+@section topCSS{
+    <link href="~/Assets/css/designer.schedule.css" rel="stylesheet" />
+
+}
+
+<h2>@ViewBag.oao</h2>
+
+
+@*@foreach (var item in Model)
+    {
+        <p>@item.Name,@item.SessionId,@item.WorkDate,@item.WorkFlag</p>
+
+    }*@
+
+@*@foreach (var name in allData)
+{
+    <h2>@name.Key</h2>
+    foreach (var el in name)
+    {
+        <p>@el.SessionId,@el.WorkFlag</p>
+    }
+}*@
+
+<div class="col-md-12 col-sm-12 ">
+    <div class="x_panel">
+        <div class="x_title ">
+            <h2 class="text-danger">
+                員工班表
+            </h2>
+            <div class="form-group">
+                <div class="col-md-6 mt-1 w-25">
+                    @ViewBag.Today
+                    <input type="date" name="schedule_date" id="schedule_date">
+                </div>
+            </div>
+            <ul class="nav navbar-right panel_toolbox">
+                <li>
+                    <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="#">新增</a>
+                        <a class="dropdown-item" href="#">修改</a>
+                    </div>
+                </li>
+                <li>
+                    <a class="close-link"><i class="fa fa-close"></i></a>
+                </li>
+            </ul>
+            <div class="clearfix"></div>
+        </div>
+
+        <div class="x_content">
+
+            <div class=" x_content_text d-flex justify-content-between">
+                <p class="d-inline">設計師當日是否到班 / 休假</p>
+                <div class="x_content_delete px-2"><i class="fas fa-trash-alt"></i></div>
+            </div>
+
+            <div class="table-responsive">
+                <table class="table table-striped jambo_table bulk_action scheduleRow_title">
+                    <thead class="scheduleThead">
+                        <tr class="headings text-center">
+                            <th>
+                                <input type="checkbox" id="check-all" class="flat">
+                            </th>
+                            <th class="designer_title column-title">設計師</th>
+                            <th class="session_title column-title" value="1">11:00 </th>
+                            <th class="session_title column-title" value="2">12:00 </th>
+                            <th class="session_title column-title" value="3">13:00 </th>
+                            <th class="session_title column-title" value="4">14:00 </th>
+                            <th class="session_title column-title" value="5">15:00 </th>
+                            <th class="session_title column-title" value="6">16:00 </th>
+                            <th class="session_title column-title" value="7">17:00 </th>
+                            <th class="session_title column-title" value="8">18:00 </th>
+                            <th class="session_title column-title" value="9">19:00 </th>
+                            <th class="session_title column-title" value="10">20:00 </th>
+                            <th class="session_title column-title" value="11">21:00 </th>
+                            <th class="column-title no-link last">
+                                <span class="nobr">Detail</span>
+                            </th>
+                            <th class="bulk-actions" colspan="7">
+                                <a class="antoo" style="color:#fff; font-weight:500;">Bulk Action( <span class="action-cnt"> </span> ) <i class="fa fa-chevron-down"></i></a>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody class="scheduleTbody">
+
+                        @*template 一個設計師當天的行程   *@
+                        @*<template id="row_schedule" class=" table-responsive">*@
+                        @*<table class="table table-striped jambo_table bulk_action">*@
+
+                        @*@foreach (var name in allData)
+                        {
+
+                        <tr class="even pointer text-center">
+                            <td class="a-center ">
+                                <input type="checkbox" class="flat" name="table_records">
+                            </td>
+                            <td class=" designer_name">@name.Key</td>
+                            @foreach (var el in name)
+                            {
+                                if (el.WorkFlag == "Y")
+                                {
+                                    <td class="icon_onwork" value="@el.SessionId"><i class="fas fa-circle"></i></td>
+                                }
+                                else
+                                {
+                                    <td class="icon_onwork" value="@el.SessionId"></td>
+                                }
+
+                           
+                            }
+
+                         
+
+                            <td class=" last">
+                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+                                    工作細節
+                                </button>
+                            </td>
+                        </tr>
+
+                        }*@
+
+                        @*</table>*@
+                        @*</template>*@
+                        @*template end*@
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<section>
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title modal_title_h5" id="exampleModalLongTitle">工作細節</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    ...
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@section endJS{
+
+    <script src="~/Scripts/jquery-3.4.1.js"></script>
+
+    <script>
+
+        let data = '';
+                                    //取得設計師有填的時段陣列
+                                    let designerSessionArray = [];
+                                    let allArray = []; //將data的資料由原本的object轉成array(較好forEach)
+                                    let designerNameArray = []; //所有row裡的設計師(這裡的設計師會有重複)
+                                    let filterArray = []; //設計師去重複
+                                    let checkArray = []; //整理好的各個設計師(所有)與其所有時段
+
+                                    let scheduleTbody = document.getElementsByClassName('scheduleTbody')[0];
+                                    //取得樣板的方法
+                                    function addrow(temp) {
+                                        console.log(temp);
+                                        //選取模板
+                                        let templateCard = document.getElementById('row_schedule');
+                                        // console.log(temp.item);
+                                        temp.forEach(e => { //forEach每一個角色
+                                            console.log(e);
+                                            console.log('designerName' + e[0]);
+
+
+                                            //複製模板節點
+                                            let cloneContent = templateCard.content.cloneNode(true);
+
+                                            //取得設計師名字
+                                            let designerName = cloneContent.querySelector('.designer_name');
+                                            designerName.textContent = e[0];
+
+                                            let sessionTitle = $('.icon_onwork').toArray();
+                                            console.log(sessionTitle);
+
+                                            //取得該設計師的所有時段
+                                            for (var m = 1; m < e.length; m++) {
+                                                console.log(cloneContent);
+                                                console.log(e.length);
+                                                console.log(e);
+                                                console.log(e[m]);
+                                                let ei = e[m];
+                                                console.log('ei=' + ei);
+                                                let gettd = cloneContent.querySelectorAll('.icon_onwork')[parseInt(ei) - 1];
+
+                                                console.log(gettd);
+                                                let i = document.createElement('i');
+                                                i.classList.add('success', 'fas', 'fa-circle');
+                                                //i.setAttribute('aria-hidden', 'true');
+                                                gettd.appendChild(i);
+                                                //console.log(gettd);
+                                            }
+                                            //將複製的節點加入DOM
+                                            scheduleTbody.appendChild(cloneContent);
+                                        });
+                                    }
+
+                                    //------------------------------------------------------------------------------------------------
+
+                                    ////取得所有的icon_onwork //取得的是一包List陣列,可以forEach取得11個td
+                                    ////取得所有的session_title //取得的是一包List陣列,可以forEach取得11個session
+                                    //////待修理////let sessionTitle = document.querySelectorAll('.session_title');
+                                    //let sessionTitle = $('.icon_onwork').toArray();
+                                    //let iconOnworkAll = document.querySelectorAll('.icon_onwork');
+
+                                    //let session = '';
+                                    ////取得所有的時段陣列
+                                    //let sessionArray = [];
+
+                                    ////取得session_title的屬性與值的方法
+                                    //function getAllsessionT() {
+                                    //        //forEach所有的session_title取得各自的value值
+                                    //        sessionTitle.forEach(x => {
+                                    //        //取得該session_title的內容
+                                    //        session = x.innerText;
+                                    //            sessionArray.push(x.getAttribute('value'));
+                                    //            console.log('x=' + session);
+
+                                    //    });
+                                    //    console.log('所有時段的陣列' + sessionArray);
+                                    //}
+
+
+                                    //------------------------------------------------------------------------------------------------
+
+
+
+
+                                    //$.ajax({
+                                    //    url: '/Designer_Schedule/Tojson',
+                                    //    type: 'get',
+                                    //    success: function (response) {
+                                    //        data = JSON.parse(response);
+                                    //        data.item.forEach(x => {
+                                    //            allArray.push({
+                                    //                designerName: x.DesignerName,
+                                    //                designerSession: x.Session,
+                                    //                designerId: x.DesignerId,
+                                    //                date: x.Date,
+                                    //                onwork: x.OnWork,
+                                    //                orderDetail: x.Reference_order_detail,
+                                    //            });
+                                    //        });
+
+                                    //        getCheckArray();
+
+                                    //        addrow(checkArray);
+
+
+                                    //    }
+                                    //});
+
+
+                                    function getCheckArray() {
+                                        //取出所有row裡的設計師(這裡的設計師會有重複)
+                                        allArray.forEach(x => {
+                                            designerNameArray.push(x.designerName);
+                                        });
+
+                                        //設計師去重複
+                                        filterArray = designerNameArray.filter(function (item, index, self) {
+                                            return self.indexOf(item) === index;
+                                        });
+
+
+                                    //設計師迴圈
+                                    for (var i = 0; i < filterArray.length; i++) {
+                                        var arr = new Array(); //整理好的各個設計師(自己)與其所有時段
+                                                               //設計師時段迴圈
+                                        arr.push(filterArray[i]);
+                                        for (var j = 0; j < allArray.length; j++) {
+                                            let boolAns = (allArray[j].designerName).indexOf(filterArray[i]);
+                                            if (boolAns != -1) {
+                                                if (allArray[j].designerName == filterArray[i]) {
+                                                    arr.push(allArray[j].designerSession);
+                                                }
+                                                checkArray[i] = arr;
+                                            }
+                                        }
+                                    }
+                                    console.log('checkArray=');
+                                    console.log(checkArray);
+
+                                }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                        //function getSession(input) {
+                        //    //th.innerHTML = 'dgfhj';
+                        //    input.session.forEach(x => {
+                        //        let th = document.createElement('th');
+                        //        th.innerText = x;
+                        //        th.classList.add('session_title', 'column-title');
+                        //        $('.designer_title').after(th);
+                        //    });
+                        //}
+
+
+
+
+    </script>
+}
+
+
+
+

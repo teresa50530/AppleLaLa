@@ -1,0 +1,97 @@
+﻿@model MVCDataLibrary.DB_Model.Service_details
+
+@{
+    ViewBag.Title = "Details";
+}
+
+@section topCSS{
+    <link href="~/Assets/css/tables.css" rel="stylesheet" />
+}
+
+
+<h2>服務細項詳細資料</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal horizontal">
+        <dt>
+            類型名稱
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Service_types.Type_name)
+        </dd>
+
+        <dt>
+            名稱
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            工作時間
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Work_duration)
+        </dd>
+
+        <dt>
+            價格
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Price)
+        </dd>
+
+        <dt>
+            折扣價
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Discount_price)
+        </dd>
+
+        <dt>
+            描述
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            保固期
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Warranty_period)
+        </dd>
+
+        <dt>
+            相片
+        </dt>
+
+        <dd>
+            <img src="@Html.DisplayFor(model => model.Photo)" alt="暫無" style="width:400px;height:400px" />
+        </dd>
+        <dd>
+            <a href="@Html.DisplayFor(model => model.Photo)">@Html.DisplayFor(model => model.Photo)</a>
+        </dd>
+
+        <dt>
+            單位
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Unit)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("前往修改資料", "Edit", new { id = Model.Service_details_Id }) |
+    @Html.ActionLink("回到列表", "Index")
+</p>

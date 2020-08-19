@@ -1,0 +1,131 @@
+﻿@model IEnumerable<MVC_AppleLaLa_Admin.ViewModels.Designer_Schedule.Schedule_ViewModel>
+
+@{
+    ViewBag.Title = "Index";
+    // var allData = Model.Where((x) => x.Date == DateTime.Today).GroupBy((x) => new { x.Designer_id, x.Designer.Name });
+    var thisdate = ViewBag.thisdate.ToShortDateString();
+}
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+<div class="col-md-12 col-sm-12 ">
+    <div class="x_panel">
+        <div class="x_title ">
+            <h2 class="text-danger">
+                @thisdate 員工班表
+            </h2>
+            <div class="form-group">
+            </div>
+            <ul class="nav navbar-right tools_dropdown">
+                <li class="dropdown">
+                    <div href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></div>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="#">新增</a>
+                        <a class="dropdown-item" href="#">修改</a>
+                    </div>
+                </li>
+            </ul>
+            <div class="clearfix"></div>
+        </div>
+
+        <div class="x_content">
+
+            <div class=" x_content_text d-flex justify-content-between">
+                <div class="calendar_block a-center">
+                    <p class="d-inline">選擇其他日期班表</p>
+                    <input type="date" name="schedule_date" id="schedule_date" class="mx-1">
+                    <button id="btn_schedule_date" class="btn btn-warning rounded-pill mx-1">search</button>
+                </div>
+                <div class="x_content_delete px-2"><i class="fas fa-trash-alt"></i></div>
+                @*@Html.ActionLink("刪除", "Delete", new { id = item.Service_details_Id }, new { @class = "btn del_btn" })*@
+            </div>
+
+            <div class="table-responsive">
+                <table class="table table-striped jambo_table bulk_action scheduleRow_title">
+                    <thead class="scheduleThead">
+                        <tr class="headings text-center">
+                            <th class="designer_title column-title">設計師</th>
+                            <th class="session_title column-title" value="1">11:00 </th>
+                            <th class="session_title column-title" value="2">12:00 </th>
+                            <th class="session_title column-title" value="3">13:00 </th>
+                            <th class="session_title column-title" value="4">14:00 </th>
+                            <th class="session_title column-title" value="5">15:00 </th>
+                            <th class="session_title column-title" value="6">16:00 </th>
+                            <th class="session_title column-title" value="7">17:00 </th>
+                            <th class="session_title column-title" value="8">18:00 </th>
+                            <th class="session_title column-title" value="9">19:00 </th>
+                            <th class="session_title column-title" value="10">20:00 </th>
+                            <th class="session_title column-title" value="11">21:00 </th>
+                            <th class="session_title column-title" value="11">編輯</th>
+                            <th class="column-title no-link last">
+                                <span class="nobr">刪除</span>
+                            </th>
+
+                            <th class="bulk-actions" colspan="7">
+                                <a class="antoo" style="color:#fff; font-weight:500;">Bulk Actions ( <span class="action-cnt"> </span> ) <i class="fa fa-chevron-down"></i></a>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody class="scheduleTbody">
+
+                        @foreach (var schedule in Model)
+                        {
+
+                        <tr class="even pointer text-center">
+                            <td class=" designer_name">@schedule.Name</td>
+                            @for (int i = 1; i < 12; i++)
+                            {
+                                if (schedule.Sessions.Contains(i))
+                                {
+                                    <td class="icon_onwork" value="@i"><i class="fas fa-circle"></i></td>
+                                }
+                                else
+                                {
+                                    <td class="icon_onwork" value="@i"></td>
+                                }
+                            }
+
+                            <td class=" edit">
+                                @Html.ActionLink("編輯", "Edit", new { id = schedule.Designer }, new { @class = "btn edit_btn" })
+                            </td>
+                            <td class=" last">
+                                @*id}-{year}-{month}-{day}*@
+                                @Html.ActionLink("刪除", "Delete", new { id = schedule.Designer, year = schedule.Date.Year, month = schedule.Date.Month, day = schedule.Date.Day }, new { @class = "btn del_btn" })
+                            </td>
+                        </tr>
+
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<div>
+    @Html.ActionLink("返回班表", "Index")
+</div>
+
+
+@section endJS{
+    <script>
+        let schedule_dateBtn = document.querySelector('#btn_schedule_date');
+
+        schedule_dateBtn.addEventListener('click', Getdate);
+
+        function Getdate() {
+            //alert('getdate function');
+            let schedule_date = document.querySelector('#schedule_date').value;
+            if (schedule_date.length != 0) {
+                console.log('schedule_date:' + schedule_date);
+                let url = '/DesignerSchedule/' + schedule_date;
+
+                window.location.href = url;
+            }
+            else {
+                alert('請選擇日期');
+            }
+        }
+    </script>
+}

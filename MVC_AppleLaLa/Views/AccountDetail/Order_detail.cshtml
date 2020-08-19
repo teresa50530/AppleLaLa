@@ -1,0 +1,164 @@
+﻿@model  IEnumerable<MVC_AppleLaLa.Models.OrderDetailViewModel>
+
+@{
+    var Total = TempData["Total"];
+    var UserDetail = Model.FirstOrDefault();
+    var Count = Model.Count();
+    var Name = UserDetail.Name;
+    var Tel = UserDetail.Tel;
+    var Date = UserDetail.date;
+    var PayWay = UserDetail.PayMethod;
+    var PayStatus = UserDetail.payStatus;
+}
+@section topCSS{
+
+    <link href="~/Assets/css/Order_detail.css" rel="stylesheet" />
+   
+    
+}
+
+
+
+
+    <div class="Content">
+        <div class="row w-100">
+            <div class="container">
+                <!-- 上面大一大塊 -->
+                <div class="allpanel cart-summary margin-top-large " data-toggle="collapse" aria-expanded="true"
+                     href="#cartSummary">
+                    <!-- 案的地方 -->
+                    <div class="panel_hander ">
+                        <h3>總計金額:NT$@Total</h3>
+                        <h5>
+                            服務項目:@Count 件
+                            <i class="fas fa-caret-down"></i>
+                        </h5>
+                    </div>
+                </div>
+                @foreach (var Detial in Model)
+                {
+                    <div class="collapse in" id="cartSummary">
+                        <div class="panel panel-body ">
+                            <section class="shopping_cart"> 
+                                <div class="cart_items">
+                                    <div class="table-header row hidden-xs">
+                                        <div class="col-sm-4">預約項目</div>
+                                        <div class="col-sm-2 ">預約時間</div>
+                                        <div class="col-sm-2 text-center">設計師</div>
+                                        <div class="col-sm-2 text-center">優惠</div>
+                                        <div class="col-sm-2 text-center item-total">價格</div>
+                                    </div>
+
+                                    <!-- 這是一個 -->
+                                    <div class="table_row row cart-item read-only">
+                                        <div class="col-xs-12 col-sm-4 item-information p-15">
+                                            <img src="@Detial.ImgUrl" alt="">
+                                            <div class="description">
+                                                <h5>@Detial.ReserveItem</h5>
+                                                @*<span>美甲</span>*@
+                                            </div>
+                                        </div>
+                                        <!-- 時間 -->
+                                        <div class="col-xs-12 col-sm-2 item-time" >
+                                            <span>@Date.ToShortDateString()<br>@Detial.Time.ToString(@"hh\:mm")</span>
+                                        </div>
+                                        <!-- 服務人員-->
+                                        <div class="col-xs-12 col-sm-2 item-servant">
+                                            <span>@Detial.ServicePerson</span>
+
+                                        </div>
+
+                                        <!-- 優惠 -->
+                                        <div class="col-xs-12 col-sm-2 text-center item-discount ">
+                                            <span>@Detial.Coupon_name @Decimal.ToInt32(Detial.BthSale) 折</span>
+                                        </div>
+                                        <!-- 小計 -->
+                                        <div class="col-xs-12 col-sm-2  item-total">
+                                            <span>NT$ @Decimal.ToInt32(Detial.ItemTotal)</span>
+                                        </div>
+                                        <!-- 到這裡 -->
+                                    </div>
+                                </div>
+                                <!-- 到這 -->
+                            </section>
+
+                            <!-- 經額計算 -->
+                            <div class="order-summary col-xs-12 col-sm-5 ml-auto p-15" >
+                                <div class="subtotal">
+                                    <span>原價:</span>
+                                    <span class="float-right">NT$ @Detial.ORIGPrice</span>
+                                </div>
+                                <div class="discount" >
+                                    <span>折扣:</span>
+                                    <span class="float-right">NT$ @Decimal.ToInt32(Detial.Rebate)</span>
+                                </div>
+                                <div class="total" >
+                                    <span>價格:</span>
+                                    <span class="float-right">NT$@Decimal.ToInt32(Detial.ItemTotal)</span>
+                                </div>
+                            </div>
+                            <!-- 到這 -->
+                        </div>
+                    </div>
+                }
+                <!-- 上面大衣大塊到這 -->
+                <div class="panel panel-order-info">
+                    <div class="panel-body">
+                        <!-- 一個橫排的 -->
+                        <div class="row">
+                            <!-- 左 -->
+                            <div class="col-sm-6 order-detail-section">
+                                <h4>訂單資訊</h4>
+ 
+
+                                <div class="hor-row">
+                                    <span class="col-xs-5 col-sm-4">
+                                        付款方式
+                                    </span>
+                                    <span class="col-xs-7 col-sm-8">
+                                        @PayWay
+                                    </span>
+                                </div>
+                                <div class="hor-row">
+                                    <span class="col-xs-5 col-sm-4">
+                                        付款狀態
+                                    </span>
+                                    <span class="col-xs-7 col-sm-8">
+                                        @PayStatus
+                                    </span>
+                                </div>
+                            </div>
+
+                            <!-- 右 -->
+                            <div class="col-sm-6 order-detail-section">
+                                <h4> 顧客資訊</h4>
+                                <div class="hor-row">
+                                    <span class="col-xs-5 col-sm-4">
+                                        名稱:
+                                    </span>
+                                    <span class="col-xs-7 col-sm-8">
+                                       @Name
+                                    </span>
+                                </div>
+
+                                <div class="hor-row">
+                                    <span class="col-xs-5 col-sm-4">
+                                        電話:
+                                    </span>
+                                    <span class="col-xs-7 col-sm-8">
+                                        @Tel
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- 橫排 -->
+                    </div>
+                </div>
+
+            </div>
+            <!-- 下面那塊 -->
+
+        </div>
+    </div>
+
+<div></div>

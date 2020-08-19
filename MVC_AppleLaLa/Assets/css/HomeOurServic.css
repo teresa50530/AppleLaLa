@@ -1,0 +1,261 @@
+.intro_p p{
+    margin-bottom:30px !important;
+}
+.carousel-inner {
+    width: 100%;
+    height: 40rem;
+    overflow: hidden
+}
+
+.carousel-item img {
+    max-height: 40rem;
+    object-fit: cover;
+}
+
+.intro-section {
+    margin: 9% 0;
+}
+
+.intro-content {
+    width: 40rem;
+}
+
+    .intro-content h2 {
+        font-size: 50px;
+    }
+
+.intro-content-img {
+    text-align: end;
+}
+
+    .intro-content-img img {
+        width: 21rem;
+        border-radius: 50px;
+    }
+
+
+
+
+.intro-section .spad {
+    margin-bottom: 45px;
+}
+
+.intro-title {
+    font-size: 50px;
+}
+
+.intro-img img {
+    width: 30rem;
+    border-radius: 50px;
+}
+
+.our-item {
+    background-color: white;
+}
+
+.spad {
+    padding-top: 2rem !important;
+    padding-bottom: 2rem !important;
+}
+
+li {
+    list-style-type: none;
+}
+
+
+.services-title h1 {
+    text-align: center;
+    font-size: 5em;
+    margin: 50px 0 20px 0;
+}
+
+    .services-title h1:nth-child(1) {
+        color: burlywood;
+        font-family: Audiowide;
+    }
+
+        .services-title h1:nth-child(1):hover {
+            -webkit-animation: neon5 1.5s ease-in-out infinite alternate;
+            -moz-animation: neon5 1.5s ease-in-out infinite alternate;
+            animation: neon5 1.5s ease-in-out infinite alternate;
+        }
+
+    .services-title h1:hover {
+        color: #ffffff;
+    }
+/*glow for webkit*/
+
+
+
+
+@-webkit-keyframes neon5 {
+    from {
+        text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px burlywood, 0 0 70px burlywood, 0 0 80px burlywood, 0 0 100px burlywood, 0 0 150px burlywood;
+    }
+
+    to {
+        text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px burlywood, 0 0 35px burlywood, 0 0 40px burlywood, 0 0 50px burlywood, 0 0 75px burlywood;
+    }
+}
+
+
+/*glow for mozilla*/
+
+
+@-moz-keyframes neon5 {
+    from {
+        text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px burlywood, 0 0 70px burlywood, 0 0 80px burlywood, 0 0 100px burlywood, 0 0 150px burlywood;
+    }
+
+    to {
+        text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px burlywood, 0 0 35px burlywood, 0 0 40px burlywood, 0 0 50px burlywood, 0 0 75px burlywood;
+    }
+}
+
+/*glow*/
+
+
+
+@keyframes neon5 {
+    from {
+        text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px burlywood, 0 0 70px burlywood, 0 0 80px burlywood, 0 0 100px burlywood, 0 0 150px burlywood;
+    }
+
+    to {
+        text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px burlywood, 0 0 35px burlywood, 0 0 40px burlywood, 0 0 50px burlywood, 0 0 75px burlywood;
+    }
+}
+
+
+/*.no-gutters {
+margin-right: 10% ;
+margin-left: 10% ;
+}*/
+
+.ts-item-img {
+    margin-left: 20px;
+}
+
+    .ts-item-img img {
+        border-radius: 50px
+    }
+
+.intro-section-vessel {
+    display: flex;
+}
+
+@media screen and (max-width:768px) {
+    .intro_ul {
+        width: 100%;
+    }
+
+    .intro-section-vessel {
+        display: block;
+    }
+
+    .intro-title-marquee {
+        width: 100%
+    }
+
+    .intro-img {
+        margin-top: 10%;
+        width: 100%;
+       
+    }
+
+    .intro-content h2 {
+        font-size: 35px !important;
+    }
+
+    .intro-content {
+        width: 100%;
+    }
+}
+
+.brands-section {
+    background-color: antiquewhite;
+}
+
+
+@import url(https://fonts.googleapis.com/css?family=Oswald);
+@import url(https://fonts.googleapis.com/css?family=Quattrocento);
+
+.snip1361 {
+    font-family: 'Quattrocento', Arial, sans-serif;
+    position: relative;
+    overflow: hidden;
+    /* margin: 10px;
+  min-width: 230px;
+  max-width: 315px; */
+    width: 100%;
+    color: #141414;
+    text-align: left;
+    line-height: 1.4em;
+    font-size: 16px;
+}
+
+    .snip1361 * {
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        -webkit-transition: all 0.35s ease;
+        transition: all 0.35s ease;
+    }
+
+    .snip1361 img {
+       width: 100%;
+        height:350px;
+        vertical-align: top;
+    }
+
+    .snip1361 figcaption {
+        position: absolute;
+        top: calc(85%);
+        width: 100%;
+        background-color: #ffffff;
+        padding: 15px 25px 87px;
+    }
+
+        .snip1361 figcaption:before {
+            position: absolute;
+            content: '';
+            z-index: 2;
+            bottom: 100%;
+            left: 0;
+            width: 100%;
+            height: 80px;
+            background-image: -webkit-linear-gradient(top, transparent 0%, #ffffff 100%);
+            background-image: linear-gradient(to bottom, transparent 0%, #ffffff 100%);
+        }
+
+    .snip1361 h3,
+    .snip1361 p {
+        margin: 0 0 10px;
+    }
+
+    .snip1361 h3 {
+        font-weight: 300;
+        font-size: 1.4em;
+        line-height: 1.2em;
+        font-family: 'Oswald', Arial, sans-serif;
+        text-transform: uppercase;
+    }
+
+    .snip1361 p {
+        font-size: 0.9em;
+        letter-spacing: 1px;
+        opacity: 0.9;
+    }
+
+    .snip1361 a {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 2;
+    }
+
+    .snip1361:hover figcaption,
+    .snip1361.hover figcaption {
+        top: 185px;
+    }

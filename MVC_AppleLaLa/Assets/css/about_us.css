@@ -1,0 +1,73 @@
+﻿@charset "UTF-8";
+
+.group_section {
+    background-image: url('../image/bg.jpg');
+}
+
+.about_section_block .about_box_block .about_content_block {
+  font-family: 'Noto Sans TC', sans-serif;
+}
+
+.about_section_block .about_box_block .about_content_block .about_content_ul .about_content_li {
+  font-size: 16px;
+  color: #56442c;
+}
+
+.about_section_block .about_box_block .about_content_block .btn_more_project {
+  font-size: 18px;
+}
+
+.about_section_block .about_box_block .about_content_block .btn_more_project .btn_i_more_project {
+  font-size: 18px;
+}
+
+.about_section_block .about_box_block .about_content_block .btn_more_project:hover {
+  cursor: pointer;
+  background-color: #e2c092;
+  color: #56442c;
+  border: #e2c092;
+}
+
+/*.team_member_block {
+  background-image: url("https://drive.google.com/uc?export=view&id=1HNvMStf_NECHyq1ofnJgClErZ74Dsw6s");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+}*/
+.set-bg {
+    width: 100%;
+    background-image: url(../image/about-1.jpg);
+    background-repeat: no-repeat;
+    background-position: right;
+    background-size: cover;
+}
+.team_navigation_block .nav_item_block .nav_link_title {
+    font-family: 'Noto Sans TC', sans-serif;
+}
+
+.timetable_section_block .timetable_work_duration {
+  font-family: 'Noto Sans TC', sans-serif;
+}
+
+.timetable_section_block .a_opening_hours {
+  font-family: 'Noto Sans TC', sans-serif;
+}
+
+.newsletter_section_block:hover {
+  cursor: pointer;
+}
+
+.newsletter_section_block:hover .section_title_h2 {
+  color: #e2c092;
+}
+
+.section_title_h2{
+    display:flex;
+    justify-content:space-around;
+}
+
+.join_us_arrow{
+    margin-top:2.5%;
+}
+
+/*# sourceMappingURL=about_us.css.map */

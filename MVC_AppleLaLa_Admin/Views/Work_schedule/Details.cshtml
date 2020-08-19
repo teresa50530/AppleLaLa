@@ -1,0 +1,58 @@
+﻿@model MVCDataLibrary.DB_Model.Work_schedule
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Work_schedule</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Designer.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Designer.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Session.Session_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Session.Session_id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Reference_order_detail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Reference_order_detail)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.On_work_flag)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.On_work_flag)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Schedule_id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

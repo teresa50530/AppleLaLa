@@ -1,0 +1,69 @@
+﻿@model IEnumerable<MVCDataLibrary.DB_Model.Order_details>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Order.Order_id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Service_details.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Appointment_date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Session_id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Designer_id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Coupon_id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Last_updata_date)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Order.Order_id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Service_details.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Appointment_date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Session_id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Designer_id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Coupon_id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Last_updata_date)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Order_detail_no }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Order_detail_no }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Order_detail_no })
+        </td>
+    </tr>
+}
+
+</table>

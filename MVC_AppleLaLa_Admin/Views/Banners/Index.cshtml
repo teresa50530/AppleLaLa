@@ -1,0 +1,59 @@
+﻿@model IEnumerable<MVCDataLibrary.DB_Model.Banner>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+@section topCSS{
+    <link href="~/Assets/css/tables.css" rel="stylesheet" />
+}
+
+<ul class="nav navbar-right panel_toolbox">
+    <li>
+        @using (Html.BeginForm("Index", "Banners", FormMethod.Get))
+        {
+        <div class="mt-1 px-auto">
+            @Html.TextBox("searching", "", new { @class = "search_text" })
+            <input type="submit" value="查詢" class="searching btn edit_btn" />
+            <a href="/Banners/Create" class="pr-0" title="新增資料"><i class="fas fa-plus"></i></a>
+        </div>
+        }
+    </li>
+</ul>
+<div class="clearfix"></div>
+@if (Model.Count() == 0)
+{
+    <tr>
+        <td colspan="1" style="color:red;">
+            暫無資料
+        </td>
+    </tr>
+}
+else
+{
+    foreach (var el in Model)
+    {
+        <div class="card mb-3">
+            <div class="row">
+                <div class="col-md-4">
+
+                    <img src="@el.Banner_photo_url" class="card-img d-block h-100 overflow-hidden" alt="暫無">
+
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body banner_body">
+                        <h3 class="card-title">@el.Title</h3>
+                        <h5>@el.Sut_title</h5>
+                        <p class="card-text">
+                            @el.Text
+                        </p>
+                        <p class="card-text"><small class="text-muted">@el.Last_updata_date</small></p>
+                        @Html.ActionLink("修改", "Edit", new { id = el.Banner1 }, new { @class = "btn edit_btn" })
+                        @Html.ActionLink("詳細資料", "Details", new { id = el.Banner1 }, new { @class = "btn edit_btn" })
+                        @Html.ActionLink("刪除", "Delete", new { id = el.Banner1 }, new { @class = "btn del_btn" })
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+}

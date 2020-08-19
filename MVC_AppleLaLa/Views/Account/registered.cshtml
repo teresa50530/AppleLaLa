@@ -1,0 +1,53 @@
+﻿
+@{
+    ViewBag.Title = "registered";
+}
+
+<div class="row">
+    <a href="#" class="logo"><img src="./2020_電商圖片/形象篇/logo2.png" alt=""></a>
+</div>
+<div class="container">
+    <div class="row justify-content-around">
+        <div class="TOP" ">
+            <div class="login_top">
+                <h3>LOGIN</h3>
+                <p>登入會員快速結帳</p>
+            </div>
+            <div class="login_content">
+                <li><input class="form-control" type="email" placeholder="電子郵件" required></li>
+                <li><input class="form-control" type="password" placeholder="會員密碼" required></li>
+                <div class="new-web-row">
+
+                    <input type="text" class=" web-form-input " required="required" id="Yzm"
+                           style="width: 40%;float: initial; margin-left: 27%;" required>
+                    <input type="button" id="code" value="點我驗證" class="btn-list-btn"
+                           style="margin:0;float: right;width:23%" onclick="createCode()" />
+                </div>
+            </div>
+            <div class="remember">
+                <input type="checkbox" aria-label="Checkbox for following text input">記住我 | <a href="#">忘記密碼?</a>
+            </div>
+            <li><div class="login_btn btn">登入</div></li>
+            <li><div class="thrid_part_btn btn">Facebook登入</div></li>
+        </div>
+        <div class="third_part_login">
+            <div class="login_top">
+                <h3>+ JOIN US</h3>
+                <p>加入會員可得到更多折扣優惠，免費註冊</p>
+            </div>
+            <div class="login_content">
+                <li><input class="form-control" type="email" placeholder="電子郵件" required></li>
+                <li><input class="form-control" type="password" placeholder="會員密碼" required></li>
+                <li><input class="form-control" type="password" placeholder="確認密碼" required></li>
+                <div class="new-web-row">
+
+                    <input type="text" class=" web-form-input " required="required" id="Yzm"
+                           style="width: 40%;float: initial; margin-left: 27%;" required>
+                    <input type="button" id="code" value="點我驗證" class="btn-list-btn"
+                           style="margin:0;float: right;width:23%" onclick="createCode()" />
+                </div>
+            </div>
+            <li><div class="login_btn btn">註冊</div></li>
+            <li><div class="thrid_part_btn btn">Facebook註冊</div></li>
+        </div>
+    </div>

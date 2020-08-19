@@ -1,0 +1,178 @@
+
+.table_row {
+    border-top: 1px solid #EDEDED;
+    border-bottom: none;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+}
+
+    .table_row img {
+        width: 60px;
+        height: 60px;
+        float: left;
+        margin-right: 5px;
+    }
+
+.description span {
+    background-color: aquamarine;
+    padding: 3px 6px;
+    border-radius: 5px;
+}
+
+.hor-row {
+    margin-bottom: 15px;
+}
+
+.order-detail-section h4 {
+    margin: 15px;
+}
+
+.cart_promotions {
+    margin-bottom: 10px;
+    width: 100%;
+    padding: 5px 15px;
+}
+
+.badge {
+    width: 150px;
+    border-radius: 0;
+    font-weight: 400;
+    font-size: 11px;
+    background-color: transparent;
+    padding: 0;
+}
+
+    .badge span {
+        display: block;
+        background-color: #E8F8E8;
+        padding: 5px 0;
+        color: #000;
+        font-weight: 400;
+        font-size: 11px;
+    }
+
+.description {
+    padding: 0 15px;
+}
+
+.shopping_cart {
+    border-bottom: 1px solid #EDEDED;
+}
+
+.panel_hander {
+    padding: 20px;
+    text-align: center;
+    border: 1px solid #EDEDED;
+    background-color: white;
+}
+
+
+.table-header {
+    padding: 15px;
+}
+
+.item-total {
+    text-align: center;
+}
+
+.cart_promotions {
+    border-top: 1px solid #EDEDED;
+}
+
+.item-servant {
+    display: grid;
+    text-align: center;
+}
+
+.promotion {
+    display: flex;
+    margin: 20px 0;
+}
+
+.cart_promotion h5 {
+    margin: 10px 0;
+}
+
+.panel {
+    padding: 0 15px;
+    background-color: white;
+    margin-top: 0;
+}
+
+.panel-body {
+    border: 1px solid #EDEDED;
+}
+
+.row {
+    margin: 0 0;
+}
+
+.panel-order-info {
+    padding: 0;
+    margin: 50px 0;
+}
+
+.allpanel .panel-order-info {
+}
+
+.allpanel {
+    margin-top: 50px;
+}
+.order-summary.subtotal {
+    margin-bottom: 15px;
+}
+.order-summary.discount {
+    margin-bottom: 15px;
+}
+
+.order-summary.subtotal {
+    margin-bottom: 15px;
+}
+
+.order-summary.discount {
+    margin-bottom: 15px;
+}
+
+.order-summary.total {
+    margin-bottom: 15px;
+}
+
+.item-time {
+    padding: 15px;
+}
+
+
+
+
+@media screen and (max-width:768px) {
+    .table-header {
+        display: none
+    }
+
+    .ds-name {
+        text-align: right;
+    }
+
+    .item-time {
+        text-align: end;
+        padding: 0;
+    }
+
+
+    .item-servant {
+        display: block;
+        text-align: end;
+        padding: 0;
+    }
+
+    .item-total {
+        text-align: end;
+        padding: 0;
+    }
+
+    .item-discount {
+        text-align: end !important;
+        padding: 0;
+    }
+}

@@ -1,0 +1,37 @@
+﻿@model MVCDataLibrary.DB_Model.Payway
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+@section topCSS {
+    <link href="~/Assets/css/tables.css" rel="stylesheet" />
+}
+
+<h2>刪除客戶資料</h2>
+
+<h3>確定要刪除?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal horizontal">
+        <dt>
+            付款方式
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <div class="form-actions">
+            <input type="submit" value="確認刪除" class="btn del_btn confirm_del" />
+        </div>
+    }
+    <div>
+        @Html.ActionLink("回到列表", "Index")
+    </div>
+</div>

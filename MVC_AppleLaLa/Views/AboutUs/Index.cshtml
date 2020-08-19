@@ -1,0 +1,258 @@
+﻿@model  IEnumerable<MVC_AppleLaLa.ViewModels.Aboutus.AboutusViewModel>
+
+
+
+<!-- Page info section -->
+<section class="page-info-section set-bg" data-setbg="https://drive.google.com/uc?export=view&id=1APUen20NKeRKz3fCRBY6HLWfQ35fmnhv">
+    <div class="container text-center">
+        <h2>About Us</h2>
+    </div>
+</section>
+<!-- Page info section end -->
+<!-- about section -->
+<section class="about-section spad about_section_block">
+    <div class="container">
+        <div class="row about-box about_box_block">
+            <div class="col-md-6 about-img">
+                <img src="https://imgur.com/563ugie.png" />
+            </div>
+            <div class="col-md-6 ">
+                <div class="about-content about_content_block">
+                    <h2 about_section_content_title>美甲</h2>
+                    <ul class="mb-5 .about_content_ul">
+                        <li class="about_content_li py-lg-1">凝膠美甲項目皆贈送指甲精緻保養，手足同價格，並享有7天的保固期</li>
+                        <li class="about_content_li py-lg-1">本店凝膠卸除，續做凝膠或保養，可享免費卸甲優惠</li>
+                        <li class="about_content_li py-lg-1">如需手、腿皮膚類深層保養可參考潤澤項目</li>
+                    </ul>
+                    <a href="/ShippingProcess/choose_location" class="btn_more_project site-btn">前往預約 <i class="btn_i_more_project far fa-arrow-alt-circle-right"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="row about-box about_box_block">
+            <div class="col-md-6 about-img col-push">
+                <img src="https://drive.google.com/uc?export=view&id=1R8dralT2IPnnsSxjxz8U0_MYS3je_3nd" />
+            </div>
+            <div class="col-md-6 col-pull">
+                <div class="about-content  about_content_block">
+                    <h2 class="about_section_content_title">美睫</h2>
+                    <ul class="mb-5 .about_content_ul">
+                        <li class="about_content_li py-lg-1">本店美睫服務贈送價值400元睫毛深層清潔SPA，享3天內免費保固</li>
+                        <li class="about_content_li py-lg-1">以上為雙眼根數；凡重新嫁接即附贈美睫清潔專用組乙套</li>
+                        <li class="about_content_li py-lg-1">初次來本店嫁接消費，他店卸睫可享免費優惠；不接受他店補睫，懇請見諒</li>
+                    </ul>
+                    <a href="/ShippingProcess/choose_location" class="btn_more_project site-btn">前往預約 <i class="btn_i_more_project far fa-arrow-alt-circle-right"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="row about-box about_box_block">
+            <div class="col-md-6 about-img">
+                <img src="https://imgur.com/atLB9eB.png" />
+            </div>
+            <div class="col-md-6 ">
+                <div class="about-content about_content_block">
+                    <h2 about_section_content_title>紋繡</h2>
+                    <ul class="mb-5 .about_content_ul">
+                        <li class="about_content_li py-lg-1">眉2個月內免費補色乙次，一年內補色為$2,000元，重新施作享6折優惠</li>
+                        <li class="about_content_li py-lg-1">眼3個月內免費補色乙次，一年內補色為$2,000元，重新施作享6折優惠</li>
+                        <li class="about_content_li py-lg-1">唇6個月內免費補色乙次，一年內補色為$5,000元，重新施作享6折優惠</li>
+                    </ul>
+                    <a href="/ShippingProcess/choose_location" class="btn_more_project site-btn">前往預約 <i class="btn_i_more_project far fa-arrow-alt-circle-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- about section end -->
+<!-- Team section -->
+<section class="team-section" name="member">
+    <div class="section-title text-white">
+        <div class="container">
+            <h2>Our Team</h2>
+        </div>
+    </div>
+    <div class="team-navigation">
+        <div class="container">
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                <li class="nav-item">
+                    <h4 class="nav-link" role="tab" aria-controls="tab-2" aria-selected="false">我們的服務包含:</h4>
+                </li>
+                <li class="nav-item">
+                    <h4 class="nav-link" role="tab" aria-controls="tab-2" aria-selected="false">美甲</h4>
+                </li>
+                <li class="nav-item">
+                    <h4 class="nav-link" role="tab" aria-controls="tab-2" aria-selected="false">美睫</h4>
+                </li>
+                <li class="nav-item">
+                    <h4 class="nav-link" role="tab" aria-controls="tab-3" aria-selected="false">美體</h4>
+                </li>
+                <li class="nav-item">
+                    <h4 class="nav-link" role="tab" aria-controls="tab-4" aria-selected="false">紋繡</h4>
+                </li>
+                <li class="nav-item">
+                    <h4 class="nav-link" role="tab" aria-controls="tab-5" aria-selected="false">除毛</h4>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="tab-content">
+        <div class="tab-pane fade show active" id="tab-1" role="tabpanel" aria-labelledby="tab-1">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="owl-carousel owl-person" id="owl-person">
+                        @foreach (var item in Model)
+                        {
+                            <div class="item col-md-12 p-0">
+                                <div class="set-bg" style="width:100%" data-setbg="@item.DesignerPicURL">
+                                    <div class="tm-info">
+                                        <h2 style="height:600px" class="text-center">@item.DesignerName</h2>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Team section end -->
+<!-- timetable section -->
+<section class="timetable-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <h2 class="ts-title">Quick Info</h2>
+                <div id="accordion" class="accordion-area about-accordion">
+                    <div class="panel">
+                        <div class="panel-header" id="headingOne">
+                            <button class="panel-link" data-toggle="collapse" data-target="#collapse1" aria-expanded="false" aria-controls="collapse1">店面位址及資訊</button>
+                        </div>
+                        <div id="collapse1" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                            <div class="panel-body">
+                                <p>
+                                    ❖八德廣豐１號店❖<br>
+                                    ☎0912-223-349； 03-361-2466<br>
+                                    🔎Line ID→appleandlala<br>
+                                    🏠桃園區永福西街121號1F(近大湳廣豐商圈)<br>
+                                    ▲▼▲▼▲▼▲▼▲▼▲▼▲▼▲▼▲▼▲▼▲▼▲▼▲▼▲▼▲▼▲▼▲▼<br>
+                                    ❖桃園藝文２號店❖<br>
+                                    ☎0975-103-030； 03-215-1088<br>
+                                    🔎Line ID→applelalayw<br>
+                                    🏠桃園區寶慶路58號2F(近藝文展演特區)<br>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel">
+                        <div class="panel-header active" id="headingTwo">
+                            <button class="panel-link active" data-toggle="collapse" data-target="#collapse2" aria-expanded="true" aria-controls="collapse2">私密處除毛</button>
+                        </div>
+                        <div id="collapse2" class="collapse show" aria-labelledby="headingTwo" data-parent="#accordion">
+                            <div class="panel-body">
+                                <p>
+                                    比基尼線┃東方經典┃法式浪漫┃巴西全除<br>
+                                    ▪ 僅限女性, 謝絕友人或男性陪同<br>
+                                    ▪ 100%私密服務空間, 一人一室不共間<br>
+                                    ▪ 個人專屬盥洗室/ 化妝間/ 更衣間<br>
+                                    ▪ 免費提供飯店等級更換用浴袍/ 浴巾<br>
+                                    歡迎傳訊/ 來電/ 現場親洽諮詢細節
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel">
+                        <div class="panel-header" id="headingThree">
+                            <button class="panel-link" data-toggle="collapse" data-target="#collapse3" aria-expanded="false" aria-controls="collapse3">柔嫩課程內容</button>
+                        </div>
+                        <div id="collapse3" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+                            <div class="panel-body">
+                                <p>
+                                    『足部潤澤柔嫩課程』90分完美雕塑<br>
+                                    1.舒緩芳香足浴 <br>2.足底去硬皮繭 <br>3.老化角質去除 <br>4.美白保濕敷膜 <br>5.精油SPA按摩<br>
+                                    『手部潤澤柔嫩課程』60分瞬效還原<br>
+                                    1. 老化角質去除 <br>2. 美白保水敷膜 <br>3. 精油SPA按摩 <br>4. 蜜蠟深層修護
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel">
+                        <div class="panel-header" id="headingFour">
+                            <button class="panel-link" data-toggle="collapse" data-target="#collapse4" aria-expanded="false" aria-controls="collapse4">有哪些設計師</button>
+                        </div>
+                        <div id="collapse4" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
+                            <div class="panel-body">
+                                <p>
+                                    我們有:<br>
+                                    1.美甲:小曼、宜庭、芭芭、趴趴<br>
+                                    2.美睫:楊楊、小余、萱萱、甄甄<br>
+                                    3.紋繡:蘋果、菈菈、艾波、娜娜<br>
+                                    4.美體:妮塔、安格、貝莎、卡蘿<br>
+                                    5.除毛:艾拉、艾琳、凱莉、薇琪
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel">
+                        <div class="panel-header" id="headingFive">
+                            <button class="panel-link" data-toggle="collapse" data-target="#collapse5" aria-expanded="false" aria-controls="collapse5">什麼是熱蠟除毛?會痛嗎?</button>
+                        </div>
+                        <div id="collapse5" class="collapse" aria-labelledby="headingFive" data-parent="#accordion">
+                            <div class="panel-body">
+                                <p>
+                                    採用美國46年ＮＯ.１熱蠟除毛品牌產品<br>
+                                    全面溫和根除體毛 ▏代謝老化角質<br>
+                                    擺脫異味悶熱難耐 ▏滑嫩觸感提升<br>
+                                    幾乎絲毫無疼痛感 ▏膚色淨白一階<br>
+                                    7大核心流程別於傳統除毛<br>
+                                    1. 肌膚水油解析清潔<br>
+                                    2. 肌膚保護隔離<br>
+                                    3. 上蠟(毛孔舒喚/根除)<br>
+                                    4. 除蠟(深層清潔)<br>
+                                    5. 緊緻毛孔<br>
+                                    6. 鎮靜降敏肌膚<br>
+                                    7. 鎖水養護保濕<br>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <h2 class="ts-title">Opening Hours</h2>
+                <div class="timetable-card">
+                    <img src="~/Assets/image/clock.png" />
+                    <ul>
+                        <li><span>Normal Day:</span>11.00-22.00</li>
+                        <li><span>Saturday:</span>11.00-20.00</li>
+                        <li><span>Sunday:</span>Closed</li>
+                        <li class="timetable_work_duration">預約時長為2小時一檔(部分服務可同步進行)</li>
+                    </ul>
+                    <a href="/ShippingProcess/choose_location" class="site-btn a_opening_hours">前往預約 <i class="btn_i_more_project far fa-arrow-alt-circle-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--  timetable section end -->
+<!--  Newsletter section -->
+
+<!--  Newsletter section end -->
+
+@section topCSS{
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.0.0-beta.2.4/assets/owl.carousel.min.css">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.0.0-beta.2.4/assets/owl.theme.default.min.css">
+}
+
+@section endJS{
+
+
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js'></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.0.0-beta.2.4/owl.carousel.min.js"></script>
+    <script src="~/Assets/js/collection_js.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"
+            integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+}

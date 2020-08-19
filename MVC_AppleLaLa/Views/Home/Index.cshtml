@@ -1,0 +1,133 @@
+﻿@model MVC_AppleLaLa.ViewModels.Home.HomeViewModel
+
+@{
+    ViewBag.Title = "Home Page";
+    var ourService = Model.homeOurServicesList;
+    var banner = Model.BannerList;
+    var environment = Model.HomeEnvironmentViewList;
+}
+
+@section topCSS{
+    <link href="~/Assets/css/HomeOurServic.css" rel="stylesheet" />
+}
+<!-- Hero section -->
+@section endJS{
+    <script>
+        $(".hover").mouseleave(
+            function () {
+                $(this).removeClass("hover");
+            }
+        );
+    </script>
+}
+<section class="hero-section set-bg" data-setbg="../Assets/image/bg.jpg">
+    <div class="container">
+        <div class="hero-slider owl-carousel">
+            <!-- slider item -->
+            @foreach (var item in banner)
+            {
+                <div class="hs-item">
+                    <div class="hs-content text-white">
+                        <h2>@item.Title</h2>
+                        <h4>@item.Sut_title</h4>
+                        <p>@item.Text</p>
+                    </div>
+                    <div class="hs-preview set-bg" data-setbg="@item.Banner_photo_url"></div>
+                </div>
+            }
+
+
+
+            <!-- slider item -->
+            @*<div class="hs-item">
+                    <div class="hs-content text-white">
+                        <h2>Be bold.<br>Be beautiful.</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec malesuada lorem maximus mauris sceleri sque, at rutrum nulla dictum. Ut ac ligula sapien. Suspendisse cursus faucibus finibus.</p>
+                        <a href="#" class="site-btn sb-big">See Offers</a>
+                    </div>
+                    <div class="hs-preview set-bg" data-setbg="https://drive.google.com/uc?export=view&id=1c06mdKKs9mBKbosuQ7EtPlNARsvzqoDe"></div>
+                </div>*@
+        </div>
+    </div>
+</section>
+
+<!-- Hero section end -->
+@*介紹的地方*@
+<!-- intro section -->
+<section class="intro-section spad ">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 intro-section-vessel ">
+                <div class="intro-content">
+
+                    <marquee behavior="alternate" class="intro-title-marquee"><h2 class="intro-title">Why Choose Us?</h2></marquee>
+                    <div class="intro_p">
+                        <P>
+                            【蘋果菈菈時尚美學】AppleLaLa+ 專營 紋繡/美甲/美睫/熱蠟除毛/手足潤澤等項目。
+                            開業已超過了15個年頭，於2013/03轉型擴大營業，目前擁有八德廣豐1號店、桃園藝文2號店雙據點。
+
+                        </P>
+                        <p>
+                            【Apple-Lala*蘋果菈菈】是姐姐Apple與妹妹Lala一同經營的店
+                            我們的的宗旨是: 「散播美麗、散播愛」
+                            【蘋果菈菈】要帶給大家的是，像自己家人的親切感♥
+                        </p>
+
+                    </div>
+       
+                </div>
+                <div class="intro-img">
+                    <img src="https://drive.google.com/uc?export=view&id=1c06mdKKs9mBKbosuQ7EtPlNARsvzqoDe" alt="">
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+<!-- intro section end -->
+@*服務介紹*@
+<!-- Services section -->
+<section class="services-section spad ">
+
+    <div class="Containers">
+        <div class="row no-gutters">
+            <div class="col-lg-4 col-sm-12 item our-item">
+
+                <div class="services-title">
+                    <h1>OUR SERVICE</h1>
+                </div>
+            </div>
+
+            @foreach (var item in @ourService)
+            {
+                <div class="col-lg-4 col-sm-12 item snip1361">
+                    <img src="@Html.DisplayFor(modelItem => item.ImgUrl)" alt="sample45" />
+                    <figcaption>
+                        <h3>@Html.DisplayFor(modelItem => item.Service_name)</h3>
+                        <p>@Html.DisplayFor(modelItem => item.Description)</p>
+                    </figcaption>
+                </div>
+            }
+
+
+
+        </div>
+    </div>
+</section>
+<!-- Services section end -->
+@*環境介紹*@
+<!-- brands section -->
+<div class="brands-section">
+    <div class="brands-slider owl-carousel">
+
+        @foreach (var item in @environment)
+        {
+            <div class="bs-item">
+                <a href="#"><img src="@Html.DisplayFor(modelItem => item.ImgUrl)" alt=""></a>
+            </div>
+        }
+
+
+    </div>
+</div>
+<!--  brands section end -->

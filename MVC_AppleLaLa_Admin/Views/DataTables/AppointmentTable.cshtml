@@ -1,0 +1,49 @@
+﻿@model IEnumerable<MVC_AppleLaLa_Admin.ViewModels.AppointmentData>
+
+@{
+    ViewBag.Title = "AppointmentTable";
+}
+
+<h2>AppointmentTable</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.DesignerId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Appointment_date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Start_time)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ServiceName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.DesignerId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Appointment_date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Start_time)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ServiceName)
+        </td>
+    </tr>
+}
+
+</table>

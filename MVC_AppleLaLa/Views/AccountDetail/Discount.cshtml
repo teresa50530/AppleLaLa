@@ -1,0 +1,36 @@
+﻿@model MVC_AppleLaLa.Models.Account_List_ViewModel
+
+
+@{
+    var Coupon = Model.Discount;
+}
+<table class="table">
+    <tr>
+        <th>優惠券名稱</th>
+        <th>有效期限</th>
+        <th>折扣數</th>
+        <th></th>
+    </tr>
+    @foreach (var item in Coupon)
+    {
+        <tr>
+
+            <td>
+                @item.Name
+            </td>
+            <td>
+                @item.Date.ToShortDateString()
+            </td>
+            <td>
+                @Decimal.ToInt32(item.Percent) 折
+            </td>
+            <td style="width:25%;">              
+                    <img src=" https://drive.google.com/uc?export=view&id=1YTqMEsfQTdK45iGeNAB5RB1vJGLA0uqN" style="width:10%;"/>
+                    @*@item.img_url*@
+            </td>
+       
+        </tr>
+    }
+
+</table>
+

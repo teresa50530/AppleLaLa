@@ -1,0 +1,135 @@
+﻿@model IEnumerable<MVC_AppleLaLa_Admin.ViewModels.Designer_Schedule.DS_ViewModel>
+@{
+    ViewBag.Title = "Details";
+    var allData = Model.GroupBy((x) => x.Name);
+}
+
+@section topCSS{
+    <link href="~/Assets/css/designer.schedule.css" rel="stylesheet" />
+}
+
+@*<h2>@ViewBag.oao</h2>*@
+<h2>@ViewBag.aaa</h2>
+
+<div class="col-md-12 col-sm-12 ">
+    <div class="x_panel">
+        <div class="x_title ">
+            <h2 class="text-danger">
+                員工班表
+            </h2>
+            <div class="form-group">
+                <div class="col-md-6 mt-1 w-25">
+                    <input type="date" name="schedule_date" id="schedule_date">
+                </div>
+                <ul class="nav navbar-right panel_toolbox">
+                    <li>
+                        <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="#">新增</a>
+                            <a class="dropdown-item" href="#">修改</a>
+                        </div>
+                    </li>
+                    <li>
+                        <a class="close-link"><i class="fa fa-close"></i></a>
+                    </li>
+                </ul>
+                <div class="clearfix"></div>
+            </div>
+
+            <div class="x_content">
+
+                <div class=" x_content_text d-flex justify-content-between">
+                    <p class="d-inline">設計師當日是否到班 / 休假</p>
+                    <div class="x_content_delete px-2"><i class="fas fa-trash-alt"></i></div>
+                </div>
+
+                <div class="table-responsive">
+                    <table class="table table-striped jambo_table bulk_action scheduleRow_title">
+                        <thead class="scheduleThead">
+                            <tr class="headings text-center">
+                                <th>
+                                    <input type="checkbox" id="check-all" class="flat">
+                                </th>
+                                <th class="designer_title column-title">設計師</th>
+                                <th class="session_title column-title" value="1">11:00 </th>
+                                <th class="session_title column-title" value="2">12:00 </th>
+                                <th class="session_title column-title" value="3">13:00 </th>
+                                <th class="session_title column-title" value="4">14:00 </th>
+                                <th class="session_title column-title" value="5">15:00 </th>
+                                <th class="session_title column-title" value="6">16:00 </th>
+                                <th class="session_title column-title" value="7">17:00 </th>
+                                <th class="session_title column-title" value="8">18:00 </th>
+                                <th class="session_title column-title" value="9">19:00 </th>
+                                <th class="session_title column-title" value="10">20:00 </th>
+                                <th class="session_title column-title" value="11">21:00 </th>
+                                <th class="column-title no-link last">
+                                    <span class="nobr">Detail</span>
+                                </th>
+                                <th class="bulk-actions" colspan="7">
+                                    <a class="antoo" style="color:#fff; font-weight:500;">Bulk Action( <span class="action-cnt"> </span> ) <i class="fa fa-chevron-down"></i></a>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody class="scheduleTbody">
+
+                            @foreach (var name in allData)
+                            {
+                                <tr class="even pointer text-center">
+                                    <td class="a-center ">
+                                        <input type="checkbox" class="flat" name="table_records">
+                                    </td>
+                                    <td class=" designer_name">@name.Key</td>
+                                    @foreach (var el in name)
+                                    {
+                                        if (el.WorkFlag == "Y")
+                                        {
+                                            <td class="icon_onwork" value="@el.SessionId"><i class="fas fa-circle"></i></td>
+                                        }
+                                        else
+                                        {
+                                            <td class="icon_onwork" value="@el.SessionId"> </td>
+                                        }
+                                    }
+                                    <td class=" last">
+                                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+                                            工作細節
+                                        </button>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <section>
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title modal_title_h5" id="exampleModalLongTitle">工作細節</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        ...
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>

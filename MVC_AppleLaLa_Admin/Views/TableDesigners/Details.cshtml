@@ -1,0 +1,112 @@
+﻿@model MVCDataLibrary.DB_Model.Designer
+
+@{
+    ViewBag.Title = "Details";
+}
+
+@section topCSS{
+    <link href="~/Assets/css/tables.css" rel="stylesheet" />
+}
+
+<h2>設計師詳細資料</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal horizontal">
+        <dt>
+            帳戶
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Account)
+        </dd>
+
+        <dt>
+            名稱
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            暱稱
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nickname)
+        </dd>
+
+        <dt>
+            生日
+        </dt>
+
+        <dd>
+            @Model.Birthday.ToString("yyyy/MM/dd")
+        </dd>
+
+        <dt>
+            地址
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Address)
+        </dd>
+
+        <dt>
+            行動電話
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Mobile)
+        </dd>
+
+        <dt>
+            性別
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Gender)
+        </dd>
+
+        <dt>
+            招聘日
+        </dt>
+
+        <dd>
+            @Model.Hire_day.ToString("yyyy/MM/dd")
+        </dd>
+
+        <dt>
+            描述
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            相片連結
+        </dt>
+
+        <dd>
+            <img src="@Html.DisplayFor(model => model.Photo_rul)" alt="暫無" style="width:400px;height:400px" />
+        </dd>
+        <dd>
+            <a href="@Html.DisplayFor(model => model.Photo_rul)">@Html.DisplayFor(model => model.Photo_rul)</a>
+        </dd>
+
+        <dt>
+            最後更新日期
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Last_updata_date)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("前往修改資料", "Edit", new { id = Model.Designer_id }) |
+    @Html.ActionLink("回到列表", "Index")
+</p>

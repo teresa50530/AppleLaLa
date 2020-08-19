@@ -1,0 +1,109 @@
+﻿@model Service_list_ViewModel
+@using MVC_AppleLaLa.ViewModels
+
+@{
+    var choose_services = (List<ServicesViewModel>)ViewBag.Services_Title;
+    var vm = (Service_list_ViewModel)ViewBag.service;
+}
+
+@section topCSS{
+    <link href="~/Assets/css/Services_page.css" rel="stylesheet" />
+    <link href="~/Assets/css/ChooseService.css" rel="stylesheet" />
+}
+
+<!-- Page info section -->
+<section class="page-info-section set-bg servie_title_photo" data-setbg="https://drive.google.com/uc?export=view&id=1HADv9_Gsjav5IUt-hStGQqXSWhSvtKbN">
+    <div class="container text-center">
+        <h2 class="service_title">Services</h2>
+    </div>
+</section>
+<!-- Page info section end -->
+<!-- Services section -->
+
+<section>
+    <div class="containers reservation_container">
+        <div class="row">
+            @foreach (var item in choose_services)
+            {
+                <div class="col-12">
+                    <div class="service_pic">
+                        <img src="@item.ImgUrl" />
+                    </div>
+                    <div class="service_info">
+                        <h1>@item.ClassifyWord</h1>
+                        <a href="@item.ClassifyItem">
+                            <span>立即預約</span>
+                        </a>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section>
+<!-- Services section end -->
+<!-- Team section -->
+<section class="popular-services-section">
+    <div class="container">
+        <div class="section-title">
+            <h2 class="Latest_project_title">Latest Project</h2>
+        </div>
+        <div class="popular-services-slider owl-carousel">
+            @foreach (var item in Model.Project)
+            {
+                <div class="service popular-item">
+                    <img src="@item.Profilo_img" />
+                    <p>@item.Description</p>
+                    <div class="color_group_div">
+                        <h2>參考色</h2>
+                        <div style="background:@item.Color;" class="color_type_div"></div>
+                    </div>
+                    <a href="../AboutUS/Index">More Info</a>
+                </div>
+            }
+        </div>
+    </div>
+</section>
+<!-- Team section end -->
+<!-- Memberships section -->
+<section class="memberships-section">
+    <div class="container">
+        <div class="section-title text-white">
+            <h2 class="most_popular_title">Most Popular</h2>
+        </div>
+        <div class="row">
+            @foreach (var item in vm.three_Service)
+            {
+                <div class="col-lg-4 col-md-6">
+                    <div class="team-member memberships-card">
+                        <img src="@item.Service_photo" class="service_photo" />
+                        <div class="tm-info">
+                            <h2>@item.Service_name</h2>
+                            <a href="../AboutUS/Index#member">
+                                <img src="~/Assets/image/icons/arrow-down.png" class="arrow_down_img" />
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+        <div class="text-center text-white pt-5 subscribe_animate">
+            <h1 class="ml4 mb-4 pb-1">
+                <span class="letters letters-1">你還不是會員 !?</span>
+                <span class="letters letters-2">現在就點下面按鈕</span>
+                <span class="letters letters-3">趕緊註冊</span>
+            </h1>
+        </div>
+        <a href="../Account/Register" class="site-btn sign_up_btn">Sign Up Now</a>
+
+    </div>
+</section>
+<!--  Memberships section end -->
+@section endJS
+{
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+    <script src="~/Assets/js/Services_page.js"></script>
+    
+   
+}
+
+

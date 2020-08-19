@@ -1,0 +1,157 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="description" content="Beauty salon template">
+    <meta name="keywords" content="applelala, beauty, creative, html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AppleLaLa⁺</title>
+    <!-- Favicon -->
+    <link href="~/Assets/image/logo.ico" rel="shortcut icon" type="image/x-icon" />
+
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+    <!-- anonymous -->
+    <script src="https://kit.fontawesome.com/44b0cfe14b.js" crossorigin="anonymous"></script>
+    @*<link href="~/Assets/css/bootstrap.min.css" rel="stylesheet" />*@
+    @*<link href="~/Assets/css/font-awesome.min.css" rel="stylesheet" />*@
+    <link href="~/Assets/css/jquery-ui.min.css" rel="stylesheet" />
+    <link href="~/Assets/css/flaticon.css" rel="stylesheet" />
+    <link href="~/Assets/css/owl.carousel.css" rel="stylesheet" />
+    <link href="~/Assets/css/style.css" rel="stylesheet" />
+    <link href="~/Assets/css/animate.css" rel="stylesheet" />
+
+    @RenderSection("topCSS", required: false)
+    @RenderSection("topJS", required: false)
+
+</head>
+<body>
+    @*這一頁小手千萬別亂動*@
+
+    <!-- Page Preloder -->
+    <div id="preloder">
+        <div class="loader"></div>
+    </div>
+
+    @*FB & Line懸浮視窗*@
+    <div class="float_share_icon">
+        <a class="share_fb" href="http://www.facebook.com/share.php?u=https://www.facebook.com/AppleandLaLa" target="_blank" title="分享至Facebook">
+            <img src="~/Assets/image/fb.png" />
+        </a>
+        <a class="share_line" href="http://line.me/R/msg/text/? 『 蘋果菈菈美甲/美容/接睫毛/紋繡眉 』『AppleLaLa⁺』美麗專業服務團隊
+專業紋繡┃美甲美睫┃熱蠟除毛┃手足潤澤 %20%0ahttps://www.facebook.com/AppleandLaLa" title="分享至Line" target="_blank">
+            <img src="~/Assets/image/line.png" />
+        </a>
+    </div>
+
+    <!-- Header section -->
+    <header class="header-section">
+        <div class="header-warp">
+            @Html.Partial("_LayoutNavigationPartial")
+        </div>
+    </header>
+    <!-- Header section end -->
+
+
+    @RenderBody()
+
+
+
+
+    <!-- Footer section -->
+    <footer class="footer-section set-bg" data-setbg="../Assets/image/footer-bg.jpg">
+        <div class="footer-warp">
+            <div class="footer-widgets">
+                <div class="row">
+                    <div class="col-xl-7 col-lg-7">
+                        <div class="row">
+                            <div class="col-xl-4 col-lg-5 col-md-6">
+                                <div class="footer-widget about-widget">
+                                    <img src="https://drive.google.com/uc?export=view&id=15DMdZwn6So4x_RuPf8HaDNvJ-75JGjMH" class="logo_photo_sub" />
+                                    <p>
+                                        體驗生活需始於足下，
+                                        <br>
+                                        用心傾聽真實的自己；
+                                        <br>
+                                        妳需要的是跨出第一步，
+                                        <br>
+                                        從現在起，比別人更愛自己。
+                                    </p>
+                                    <div class="fw-social">
+                                        <a href="https://www.facebook.com/AppleandLaLa/?hc_ref=ARRG7mRzEAZadM1USG-aAA810h8P-NJbeM0XNv33UNmmcQ9G7sgyrZ4Kbge8--1uMA0&fref=nf&__tn__=kC-R">
+                                            <i class="fab fa-facebook" style="font-size:25px;"></i>
+                                        </a>
+                                        <a href="https://www.instagram.com/applelala_plus/">
+                                            <i class="fab fa-instagram" style="font-size:25px;"></i>
+                                        </a>
+                                    </div>
+                                    <div class="fw-social">
+                                        <a href="http://adminapplelala.azurewebsites.net/">
+                                            <i class="fa fa-cog" aria-hidden="true"></i>
+                                            <p>管理者頁面</p>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-6 col-lg-6 col-md-6 offset-xl-2 offset-lg-1 offset-md-0">
+                                <div class="footer-widget list-widget">
+                                    <h4 class="fw-title"><i class="flaticon-009-makeup-5"></i>提供的服務</h4>
+                                    <ul>
+                                        <li><a href="/Collections/Index">專業紋繡</a></li>
+                                        <li><a href="/Collections/Index">美甲美睫</a></li>
+                                        <li><a href="/Collections/Index">熱蠟除毛</a></li>
+                                        <li><a href="/Collections/Index">手足潤澤</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-lg-5 offset-lg-0 offset-md-0 qr_code_group_footer">
+                        <div class="qr_code_group">
+                            <img alt="" src="//i.imgur.com/fjioN8B.jpg" class="picture_qrcode">
+                            <img alt="" src="//i.imgur.com/CO2phTl.jpg" class="picture_qrcode">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-nav">
+                    <ul>
+                        <li><a href="/Home/Index">Home</a></li>
+                        <li><a href="/AboutUS/Index">About us</a></li>
+                        <li><a href="/Services/Index">Services</a></li>
+                        <li><a href="/Collections/Index">Portfolio</a></li>
+                        <li><a href="/Contact/Index">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="copyright">
+                    <p>
+                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                        Copyright &copy;
+                        <script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with
+                        <i class="fa fa-heart-o" aria-hidden="true"></i> by
+                        <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Footer section end -->
+    @*@Scripts.Render("~/Assets/js")*@
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    <script src="~/Assets/js/owl.carousel.js"></script>
+    @*<script src="~/Assets/js/owl.carousel.min.js"></script>*@
+    <script src="~/Assets/js/circle-progress.min.js"></script>
+    <script src="~/Assets/js/main.js"></script>
+
+    @RenderSection("Scripts", required: false)
+    @RenderSection("endCSS", required: false)
+    @RenderSection("endJS", required: false)
+
+</body>
+</html>

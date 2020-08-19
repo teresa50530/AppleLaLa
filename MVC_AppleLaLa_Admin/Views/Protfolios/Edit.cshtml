@@ -1,0 +1,183 @@
+﻿@model MVCDataLibrary.DB_Model.Protfolio
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+@section topCSS{
+    <link href="~/Assets/css/tables.css" rel="stylesheet" />
+}
+
+<h2>修改作品集</h2>
+<div class="row">
+    <div class="col-12 col-md-6">
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal horizontal mx-auto">
+                <hr />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                @Html.HiddenFor(model => model.Protfolio_id)
+
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Designer_id, "設計師名稱", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.DropDownList("Designer_id", null, htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.Designer_id, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Service_details_Id, "作品集名稱", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.DropDownList("Service_details_Id", null, htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.Service_details_Id, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Photo_url, "作品集", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Photo_url, new { htmlAttributes = new { @class = "form-control", @readonly = "value" } })
+                        @Html.ValidationMessageFor(model => model.Photo_url, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Year, "年", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Year, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Year, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Month, "月", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Month, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Month, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Color_type, "顏色類別", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Color_type, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Color_type, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Description, "描述", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.TextAreaFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Create_date, "建立日期", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(m => m.Create_date, "{0:yyyy/MM/dd}", new { @class = "form-control w-40 mr-1 calendar", @readonly = "value" })
+                        @Html.ValidationMessageFor(model => model.Create_date, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                @Html.HiddenFor(m => m.Last_updata_date, new { @value = DateTime.Now })
+
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="儲存" class="btn save_btn" />
+                </div>
+            </div>
+            </div>
+        }
+
+    </div>
+
+    <div class="col-12 col-md-6">
+        <hr />
+        <div class="col-md-6">
+            <img src="@Model.Photo_url" class="card-img show_img" alt="applelala">
+        </div>
+        <div id="upload">
+            <label for="upload">選擇上傳圖檔</label>
+            <input id="upload" type="file" accept="image/*" v-on:change="showFile">
+            <!-- 上傳按鈕 -->
+            <button class="btn upload_btn mt-1" type="button" v-on:click="submit">上傳</button>
+        </div>
+    </div>
+</div>
+
+<div>
+    @Html.ActionLink("回到列表", "Index")
+</div>
+
+
+@section endJS{
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <script>
+        const id = '21a0ed102aa145f'; // 填入 App 的 Client ID
+        const token = '9acfbce0e72f307b007600627630c1eb3618d545'; // 填入 token
+        const album = 'ciQftzh';
+
+        const upload = new Vue({
+            el: '#upload',
+            data: {
+                album: album, // 若要指定傳到某個相簿，就填入相簿的 ID
+                file: null, // 準備拿 input type="file" 的值
+                fs: {
+                    name: '', // input的圖檔名稱
+                    thumbnail: null, // input的圖片縮圖
+                    size: null // input的圖片大小
+                },
+            },
+            methods: {
+                showFile(e) {
+                    this.file = e.target.files[0]; // input type="file" 的值
+                    this.fs.name = this.file.name; // input的圖檔名稱
+                    this.fs.size = Math.floor(this.file.size * 0.001) + 'KB'; // input的圖片大小
+                    this.fs.thumbnail = window.URL.createObjectURL(this.file); // input的圖片縮圖
+                    this.title = this.fs.name; // 預設 input 的圖檔名稱為圖片上傳時的圖片標題
+                },
+                submit() {
+                    let settings = {
+                        async: false,
+                        crossDomain: true,
+                        processData: false,
+                        contentType: false,
+                        type: 'POST',
+                        url: 'https://api.imgur.com/3/image/',
+                        headers: {
+                            Authorization: 'Bearer ' + token
+                            // Authorization: "Client-ID " + id
+                        },
+                        mimeType: 'multipart/form-data'
+                    };
+                    //api要的格式
+                    let form = new FormData();
+                    form.append('image', this.file);
+                    form.append('title', this.title);
+                    form.append('description', this.des);
+                    form.append('album', album); // 有要指定的相簿就加這行
+                    settings.data = form;
+
+                    $.ajax(settings).done(function (res) {
+                        var imgdata = JSON.parse(res);
+                        var link = imgdata.data.link
+                        ChangeImg(link);
+                        alert('上傳完成，稍待一會兒就可以在底部的列表上看見了。')
+                    });
+                }
+            }
+        });
+
+        function ChangeImg(value) {
+            $('.show_img').attr('src', value);
+            $('#Photo_url').attr('value', value)
+        }
+    </script>
+}

@@ -1,0 +1,47 @@
+﻿@model MVCDataLibrary.DB_Model.Service_types
+
+@{
+    ViewBag.Title = "Details";
+}
+
+@section topCSS{
+    <link href="~/Assets/css/tables.css" rel="stylesheet" />
+}
+
+
+<h2>服務類型詳細資料</h2>
+
+<div>
+    <h4>服務類型</h4>
+    <hr />
+    <dl class="dl-horizontal horizontal">
+        <dt>
+            服務名稱
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Service.Service_name)
+        </dd>
+
+        <dt>
+            類型名稱
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Type_name)
+        </dd>
+
+        <dt>
+            類型說明
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Type_description)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("前往修改資料", "Edit", new { id = Model.Type_id }) |
+    @Html.ActionLink("回到列表", "Index")
+</p>

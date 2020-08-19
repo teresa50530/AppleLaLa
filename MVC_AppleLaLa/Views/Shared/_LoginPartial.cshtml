@@ -1,0 +1,48 @@
+﻿
+@using Microsoft.AspNet.Identity
+
+
+
+@if (Request.IsAuthenticated)
+{
+    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+    {
+        @Html.AntiForgeryToken()
+
+    <ul class="nav navbar-nav navbar-right d-flex flex-row align-items-center ml-auto header-right">
+        <li>
+            @Html.ActionLink(User.Identity.GetUserName(), "index", "AccountDetail", "AccountDetail", htmlAttributes: new { title = "會員中心" })
+        </li>
+        <li class="mx-2">
+            <a href="javascript:document.getElementById('logoutForm').submit()" class="">
+                <i class="fas fa-sign-out-alt" title="登出" aria-hidden="true"></i>
+            </a>
+        </li>
+        <li>
+            <a href="/ShippingProcess/choose_location"><i class="far fa-calendar-alt" title="預約" aria-hidden="true"></i></a>
+        </li>
+    </ul>
+    }
+}
+else
+{
+<div class="icons-b">
+    <ul class="nav navbar-nav navbar-right d-flex flex-row align-items-center ml-auto header-right">
+
+        @*<li>
+                @Html.ActionLink("註冊", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })
+            </li>*@
+
+        @*<li>@Html.ActionLink("登入", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>*@
+        <li>
+            <a href="/Account/Register"><i class="fa fa-user-circle" title="註冊" aria-hidden="true"></i></a>
+        </li>
+        <li class="mx-3">
+            <a href="/Account/Login"><i class="fas fa-sign-in-alt" title="登入" aria-hidden="true"></i></a>
+        </li>
+        <li>
+            <a href="/ShippingProcess/choose_location"><i class="far fa-calendar-alt" title="預約" aria-hidden="true"></i></a>
+        </li>
+    </ul>
+</div>
+}

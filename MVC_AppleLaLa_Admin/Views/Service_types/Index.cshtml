@@ -1,0 +1,93 @@
+﻿@*@model IEnumerable<MVCDataLibrary.DB_Model.Service_types>*@
+@using MVCDataLibrary.DB_Model;
+@using PagedList.Mvc;
+@using PagedList;
+@model PagedList.IPagedList<Service_types>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+@section topCSS{
+    <link href="~/Assets/css/tables.css" rel="stylesheet" />
+    <link href="~/Content/PagedList.css" rel="stylesheet" />
+}
+
+<div class="col-md-12 col-sm-12 table_all">
+    <div class="x_panel table">
+        <div>
+            <h1 class="text-center h1_title"><a class="h1_title" href="/Service_types/Index">服務類型</a></h1>
+            <ul class="nav navbar-right panel_toolbox">
+                <li>
+                    @using (Html.BeginForm("Index", "Service_types", FormMethod.Get))
+                    {
+                        <div class="d-flex">
+                            @Html.TextBox("SearchString", "", new { @class = "search_text" })
+                            <input type="submit" value="查詢" class="searching btn edit_btn" />
+                        </div>
+                    }
+                </li>
+                <li>
+                    <a href="/Service_types/Create" title="新增資料"><i class="fas fa-plus"></i></a>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" title="其他連結"><i class="fas fa-link"></i></a>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="/TableServices/Index">服務資料</a>
+                        <a class="dropdown-item" href="/Service_details/Index">服務細項</a>
+                    </div>
+                </li>
+                <li>
+                    <a class="collapse-link" title="收縮表格"><i class="fa fa-chevron-up"></i></a>
+                </li>
+            </ul>
+            <div class="clearfix"></div>
+        </div>
+        <div class="x_content">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>@Html.ActionLink("服務名稱", "Index", new { sortOrder = ViewBag.ServiceNameSortParm })</th>
+                        <th>@Html.ActionLink("類型名稱", "Index", new { sortOrder = ViewBag.ServiceTypeNameSortParm })</th>
+                        <th>類型說明</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (Model.Count() == 0)
+                    {
+                        <tr>
+                            <td colspan="4" style="color:red;">
+                                暫無資料
+                            </td>
+                        </tr>
+                    }
+                    else
+                    {
+                        foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.ActionLink(@item.Service.Service_name, "Details", new { id = item.Type_id })
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Type_name)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Type_description)
+                                </td>
+                                <td>
+                                    @Html.ActionLink("修改", "Edit", new { id = item.Type_id }, new { @class = "btn edit_btn" })
+                                    @Html.ActionLink("刪除", "Delete", new { id = item.Type_id }, new { @class = "btn del_btn" })
+                                </td>
+                            </tr>
+                        }
+                    }
+                </tbody>
+            </table>
+            第 @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) / @Model.PageCount 頁
+            @Html.PagedListPager(Model, page => Url.Action("Index",
+            new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))
+        </div>
+    </div>
+</div>

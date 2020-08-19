@@ -1,0 +1,73 @@
+﻿@model MVC_AppleLaLa.ViewModels.Collection_list_ViewModel
+@{
+    ViewBag.Title = "Index";
+    var table = 1;
+    var WorksInfo = Model.WorksPortfolio;
+    var DesingerList = Model.WorksPortfolio.Select((x) => new { x.DesignerName, x.Introduction, x.DesignerPic }).Distinct();
+
+}
+
+<section class="page-info-section set-bg" data-setbg="../Assets/image/page-top-bg/1.jpg">
+    <div class="container text-center">
+        <h2>作品集</h2>
+    </div>
+</section>
+
+
+
+<section class="mt-5 first_detail" id="@table">
+    <div class="_wrap d-flex flex-column">
+        @foreach (var dInfo in DesingerList)
+        {
+            <div class="designer_part d-flex flex-wrap col-md-12">
+                <div class="card designer_pic sticky-top">
+                    <img src="@dInfo.DesignerPic" class="card-img-top" alt="designer">
+                    <div class="card-body">
+                        <h4 class="card-title">@dInfo.DesignerName</h4>
+                        <p class="card-text">簡介</p>
+                        <p>
+                            @dInfo.Introduction
+                        </p>
+                        <a href="/ShippingProcess/choose_location" class="btn btn-outline-danger d-flex justify-content-center">立即預約</a>
+                    </div>
+                </div>
+
+                <div class="works_browse mx-auto">
+
+                    @{
+                        var browseList = WorksInfo.Where((x) => x.DesignerName == dInfo.DesignerName);
+                        var DesignerName = @dInfo.DesignerName;
+                    }
+                    @Html.Partial("_browsePartal", browseList)
+
+                </div>
+            </div>
+        }
+
+    </div>
+
+</section>
+
+
+
+
+
+
+@section topCSS{
+    @*<link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.0.0-beta.2.4/assets/owl.carousel.min.css">*@
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.0.0-beta.2.4/assets/owl.theme.default.min.css">
+
+    <link href="~/Assets/css/collections.css" rel="stylesheet" />
+}
+
+@section endJS{
+
+
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js'></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.0.0-beta.2.4/owl.carousel.min.js"></script>
+    <script src="~/Assets/js/collection_js.js"></script>
+
+}

@@ -1,0 +1,139 @@
+﻿@model IEnumerable<MVC_AppleLaLa.ViewModels.Choose_services_list_vm>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var header = Model.Select((x) => new { x.Id, x.Service, x.ServicePhoto }).Distinct();
+}
+
+@section topCSS{
+    <link href="~/Assets/css/serviceList.css" rel="stylesheet" />
+    <style>
+        @@media screen and (max-width:992px) {
+        #leftDiv1 {
+            display: none !important;
+        }
+    }
+    </style>
+}
+
+<section class="container my-5" onload="load();">
+    <div class="row">
+        <div class="col-12">
+            <div class="accordion" id="accordionExample">
+
+
+                @foreach (var item in header)
+                {
+                    <div class="card border-0 py-2">
+                        <div class="card-header set-bg col_title" id="headingOne" data-setbg="@item.ServicePhoto">
+                            <div class="mb-0">
+                                <div class="btn btn-link choose-service-h2 btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapse_@item.Id" aria-expanded="false" aria-controls="collapseOne">
+                                    <h2 class="accordion_service_list_title pt-3 p-xl-3">@item.Service</h2>
+                                </div>
+                            </div>
+                        </div>
+                        @{
+                            var list = Model.Where((x) => x.Service == @item.Service);
+                        }
+
+                        @Html.Partial("_service_list_Partial", list)
+                    </div>
+                }
+
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+
+            <div class="btn_choose_service_list_next_step_block w-100 ">
+                <div class="agree_checkbox_input">
+                    <input type="checkbox" id="agree" name="agree" autocomplete="off" class="checkbox__input agree_checkbox " />
+                    ♥ 親~~這次只預約以上項目嗎?(確定請點方格) ♥
+                </div>
+
+                <a id="go_to_cart" autocomplete="off"
+                   class="a_choose_service_list_next_step my-5 p-2  w-100 text-center rounded"
+                   href="../ShippingProcess/shopping_cart">下一步</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+@section endJS{
+
+    <script>document.writeln("<div id=\"leftDiv1\" ><a href='../Collections/Index' target=_blank><img src='https://imgur.com/AdwTSu7.png' border=0 class='go_gif' title='作品集'></a></div>");</script>
+
+<script>
+
+    var go_to_cart = document.querySelector("#go_to_cart");
+    window.onload = function () {
+        go_to_cart.style.display = "none";
+    }
+    var btn = document.getElementById("agree");
+
+    btn.addEventListener('click', () => {
+        if (document.getElementById("go_to_cart").style.display == "none") {
+            document.getElementById("go_to_cart").style.display = null;
+            document.getElementById("go_to_cart").style.display = "block";
+        }
+
+        else {
+            document.getElementById("go_to_cart").style.display = null;
+            document.getElementById("go_to_cart").style.display = "none ";
+        }
+    })
+    var service = [];
+    $(".services").click(function () {
+        if (this.checked) {
+            service.push(this.value);
+        }
+        else {
+            let where = service.indexOf(this.value);
+            if (where > -1) {
+                service.splice(where, 1)
+            }
+        }
+        localStorage.setItem('service_list', service);
+    });
+
+    $("#agree").click(function () {
+        var get_list = localStorage.getItem('service_list');
+        var get_store = localStorage.getItem('store');
+
+        let OP = {
+            "ReserveItem": get_list,
+            "Store": get_store
+        };
+
+        //if (document.getElementById("agree").check) {
+        //    //document.getElementById("go_to_cart").setAttribute('disabled', 'false');
+        //    $("#go_to_cart").attr("disabled",false);
+
+
+        //}
+        //else {
+        //    //document.getElementById("go_to_cart").setAttribute('disabled', 'true');
+        //    $('#go_to_cart').attr("disabled", true);
+        //}
+
+        $.ajax({
+            type: "POST",
+            url: "/ShippingProcess/get_cart",
+            data: JSON.stringify(OP),
+            dataType: 'text',
+            async: true,
+            success: function () {
+                //localStorage.removeItem("store");
+                //localStorage.removeItem("service_list");
+            }
+        });
+    });
+
+
+
+</script>
+}

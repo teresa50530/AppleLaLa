@@ -1,0 +1,412 @@
+﻿@model  MVC_AppleLaLa.Models.shop_list_vm
+
+@{
+    var store = ViewBag.Store;
+    var Services = ViewBag.Services;
+    var Coupon = (shop_list_vm)ViewBag.Coupons;
+    var Designers_Time = (shop_list_vm)ViewBag.Designers_Time;
+    var only_Designer = (shop_list_vm)ViewBag.Designers;
+    var session = (shop_list_vm)ViewBag.Session;
+    var Origin = (decimal)ViewBag.Origin;
+    int v = 0;
+    int t = 11;
+}
+
+
+@section topCSS{
+    <link href="~/Assets/css/shopping_cart.css" rel="stylesheet" />
+}
+
+
+<div class="Content">
+    <div class="row all w-100 m-0">
+        <div class="container">
+            <div class="panel panel-body ">
+                <section class="shopping_cart">
+                    <div class="shopping_cart_head">
+                        <h3 id="count">預約項目共 @Model.Shop_list.Count 件</h3>
+                    </div>
+                    <div class="cart_items">
+                        <div class="table-header row hidden-xs">
+                            <div class="col-sm-3">預約項目</div>
+                            <div class="col-sm-2 ">預約日期</div>
+                            <div class="col-sm-2 text-center">預約時段</div>
+                            <div class="col-sm-2 text-center">服務人員</div>
+                            <div class="col-sm-2 text-center item-total">小計</div>
+                            <div class="col-sm-1 text-center item-total"></div>
+                        </div>
+                        <!-- 這是一個 -->
+                        @foreach (var item in Model.Shop_list)
+                        {
+                            <div class="table_row row cart-item read-only book_content dd" id="dd_@v">
+                                <div class="col-xs-12 col-sm-3 item-information">
+                                    <img src="@item.ImgUrl" alt="">
+                                    <div class="description _description">
+                                        <h5 class="Service_Name">@Services[v]</h5>
+                                        <span class="Service_Store">@store</span>
+                                    </div>
+                                </div>
+                                <!-- 日期 -->
+                                <div class="col-xs-12 col-sm-2 item-date p-0">
+
+                                    <input type="text" placeholder="預約日期" onfocus="(this.type='date')" class="calendar form-control-sm" required>
+
+                                </div>
+                                <!--時段-->
+                                <div class="item-time">
+                                    <span>
+                                        <select class="form-control-sm w-100 mt-1 choose_session" required>
+                                            <option value=null selected disabled hidden>預約時段</option>
+                                            @foreach (var s in session.Session_list)
+                                            {
+                                                if (t > 21)
+                                                {
+                                                    t = 11;
+                                                }
+
+                                                <option value="@t">@s.Start~@s.End</option>
+                                                t++;
+                                            }
+                                        </select>
+                                    </span>
+                                </div>
+                                <!-- 服務人員-->
+                                @*依上面日期和時段的條件做前端排序*@
+                                <div class="col-xs-12 col-sm-2 item-servant">
+                                    <select class="form-control-sm ml-2 item-servant-select" required>
+                                    </select>
+                                </div>
+
+                                <div class="col-xs-12 col-sm-2  item-total">
+                                    <span class="unit_price">NT$@item.OrignalPrice</span>
+                                </div>
+                                <div class="col-xs-12 col-sm-1  item-total">
+                                    <span class="delete_icon" data-toggle="modal" data-target="#exampleModalCenter_@v" value=@Services[v]>
+                                        <i class="fas fa-times"></i>
+                                    </span>
+
+                                    <!-- ModalexampleModalCenter -->
+                                    <div class="modal fade" id="exampleModalCenter_@v" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle_@v" aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header border-bottom-0">
+                                                    <h5 class="modal-title" id="exampleModalCenterTitle"></h5>
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    確定要移除嗎?
+                                                </div>
+                                                <div class="modal-footer modal-footer-btn ">
+                                                    <button type="button" class="btn close_btn" data-dismiss="modal">關閉</button>
+                                                    <button type="button" class="btn delete_btn" data-dismiss="modal" id="@Services[v]">確認</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- 到這裡 -->
+                            </div>
+                            v++;
+                        }
+
+
+                        <!-- 優惠包 -->
+                        <div class="cart_promotions">
+                            <div class="cart_promotion">
+                                <h5>享用優惠</h5>
+                                <div class="promotion ">
+                                    <div class="badge">
+                                        <span>優惠卷</span>
+                                    </div>
+                                    <div class="description">
+                                        <select class="form-control-sm ml-2 coupon" id="coupon_select">
+                                            <option selected disabled hidden>優惠卷</option>
+                                            <option value="1">不使用優惠卷</option>
+                                            @foreach (var coupon in Coupon.Coupon_list)
+                                            {
+                                                <option value="@coupon.Percent">@coupon.Name @Decimal.ToInt32(coupon.Percent * 10) 折</option>
+                                            }
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- 1個尾 -->
+                    </div>
+                    <!-- 到這 -->
+                </section>
+                <!-- 金額計算 -->
+                <div class="order-summary col-xs-12 col-sm-5 ml-auto p-15 ">
+                    <div class="subtotal">
+                        <span class="subtotal-p">小計:</span>
+                        <span class="subtotal-money" value="@Origin">NT$ @Origin</span>
+                    </div>
+                    <div class="discount">
+                        <span class="discount-p">折扣:</span>
+                        <span class="discount-money" id="discount"></span>
+                    </div>
+                </div>
+                <!-- 到這 -->
+            </div>
+            <div class="agree_checkbox_input">
+                <input type="checkbox" id="agree" name="agree" autocomplete="off" class="checkbox__input agree_checkbox" />
+                ♥ 親~~按下這按鈕期待更美的你(確定預約請點方格) ♥
+            </div>
+            <!-- 上面一大塊到這 -->
+            @using (Html.BeginForm("SpgatewayPayBill", "Bank", FormMethod.Post, new
+            {
+                @enctype = "multipart/form-data",
+                @id = "formCaptcha",
+                @class = "form-horizontal",
+                role = "form"
+            }))
+            {
+                <div class="panel-order-info">
+                    <div class="col-sm-7 col-md-8 panel-order-info_col">
+                        <div class="choose_pay_method">
+                            <div class="pay_head">
+                                <h4>選擇付款方式</h4>
+                            </div>
+                            <div class="pay_boby">
+                                <span>付款方式</span>
+                                <select class="payType form-control-sm ml-2 ">
+                                    <option selected disabled hidden>選擇付款方式</option>
+                                    <option value="CREDIT">信用卡</option>
+                                    <option value="SAMSUNGPAY">SAMSUNG PAY</option>
+                                    <option value="ANDROIDPAY">GOOGLE PAY</option>
+                                    <option value="WEBATM">WEBATM</option>
+                                    <option value="VACC">ATM 轉帳</option>
+                                    <option value="CVS,BARCODE">超商繳費</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-5 col-md-4 panel-order-info-col">
+                        <div class="order_info">
+                            <div class="order_info_head">
+                                <h4>確認訂單</h4>
+                            </div>
+                            <div class="order_info_boby">
+                                <span class="order_info_boby_total">
+                                    <input type="text" class="form-control total_input d-none final_money"
+                                           size=10 value="@Origin" name="amount" readonly style="background-color: transparent;" />
+
+                                    <input type="text" class="form-control discount_input d-none"
+                                           size=10 value="1" name="discount" readonly style="background-color: transparent;" />
+                                </span>
+                            </div>
+                            <div class="check_order">
+                                <input type="submit" class="btn-wipe caeck_order_btn" id="goPay" value="確認預約" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+@section endJS{
+    <script src="~/Assets/js/jquery-3.2.1.min.js"></script>
+    <script>
+        var work_schedule = "";
+        let Name_Group = document.querySelectorAll('.Service_Name');
+        const _origin_money = $('.total_input').attr('value');
+        let v = 1;
+        let p = 1;
+        let x = 1;
+        let b = 1;
+
+
+        $('.choose_session').each(function () {
+            $(this).attr('id', `choose_session${v}`)
+            v++;
+        })
+
+        $('.calendar').each(function () {
+            $(this).attr('id', `calendar${p}`)
+            p++;
+        })
+
+        $('.item-servant-select').each(function () {
+            $(this).attr('id', `item-servant-select${x}`)
+            x++;
+        })
+
+
+        $('.calendar').change(function () {
+            let this_id = this.getAttribute('id');
+
+            if ($(`#item-servant-select${this_id.substring(8, 9)}` == $('item-servant-select').attr('id'))) {
+                $(`#item-servant-select${this_id.substring(8, 9)}`).empty();
+            }
+        })
+
+
+        let y = 0;
+        $('.choose_session').change(function () {
+            let this_id = this.getAttribute('id');
+            if ($(`#item-servant-select${this_id.substring(14, 15)}` == $('item-servant-select').attr('id'))) {
+                $(`#item-servant-select${this_id.substring(14, 15)}`).empty();
+            }
+
+            $.ajax({
+                type: "GET",
+                url: "/ShippingProcess/Work_Schedule_JSON",
+                async: false,
+                success: function (data) {
+                    work_schedule = JSON.parse(data);
+
+                    $calendar = $(`#calendar${this_id.substring(14, 15)}`).val();
+
+                    $session = $(`#choose_session${this_id.substring(14, 15)}`).val();
+                    for (var i = 0; i < work_schedule.length; i++) {
+                        if (work_schedule[i].Date.substring(0, 10) == $calendar && work_schedule[i].Start.substring(0, 2) == $session && work_schedule[i].On_work == 'Y' /*&& work_schedule[i].Service_Name == Name_Group[y].textContent*/) {
+                            let name = work_schedule[i].Designer_Name
+                            $(`#item-servant-select${this_id.substring(14, 15)}`).append(`<option>${name}</option>`);
+                        }
+                    }
+                }
+            })
+            y++;
+        })
+
+        $('#agree').click(function () {
+            let oo = 0;
+            let data = [];
+            for (let k = 5; k < document.querySelector('.cart_items').childNodes.length - 7; k += 2) {
+
+                if ($('.calendar')[oo].value == '' || $('.choose_session')[oo].value == '' || $('.item-servant-select')[oo].value == '') {
+                    alert('你好像少填了喔!')
+                    return false;
+                }
+                $('#goPay').css('display', 'null');
+                $('#goPay').css('display', 'block');
+
+
+                $('<style>.check_order::before{background-color:#e2c092}</style>').appendTo('.check_order');
+                $('<style>.check_order::after{background-color:#e2c092}</style>').appendTo('.check_order');
+
+                let a = {
+                    'Services': $('._description')[oo].childNodes[1].textContent,
+                    'Store': $('._description')[oo].childNodes[3].textContent,
+                    'Date': $('.calendar')[oo].value,
+                    'Session': $(".choose_session option:selected")[oo].value,
+                    'Designer': $('.item-servant-select option:selected')[oo].value,
+                    'Coupon': $('.coupon').val()
+                }
+                data.push(a);
+                oo++;
+            }
+
+            $.ajax({
+                type: "POST",
+                url: "/Bank/GetCart",
+                data: { jdata: JSON.stringify(data) },
+                dataType: 'text',
+                async: true,
+                success: function () {
+
+                }
+            });
+        })
+
+        window.onload = function () {
+            $('#goPay').css('display', 'none')
+        }
+
+        $('#coupon_select').change(function () {
+            $('.final_money').attr('value', _origin_money)
+            $('.discount_input').val($('#coupon_select').val())
+            let total = parseFloat($('.total_input').val()) * parseFloat($('.discount_input').val())
+            $('.final_money').attr('value', total);
+            $('#discount').text($(this).find(':selected').text());
+        })
+
+        // X刪除購物車
+        var dd = document.querySelector("#dd");  //最大一層
+        var delete_btn = document.querySelectorAll("delete_btn"); //確認BTN
+        var deleteicon = document.querySelectorAll(".delete_icon"); //X BTN
+
+
+
+        $(".delete_btn").click(function () {
+
+            let this_id = this.getAttribute('id');
+            let temp = 0;
+            let m = 2;
+            let count = document.querySelector('#count');
+            let deleteList = localStorage.getItem('service_list').split(',');
+            let subtotal_money = document.querySelector('.subtotal-money');
+
+            if (deleteList.length > 0) {
+                let serviceList_for_delete = document.querySelectorAll('.dd');
+                let target = deleteList.indexOf(this_id);
+                deleteList.splice(target, 1);
+                serviceList_for_delete[target].remove();
+                localStorage.setItem('service_list', deleteList);
+                count.innerHTML = `預約項目共 ${$('.cart-item').length} 件`;
+
+                $('.unit_price').each(function () {
+                    temp += parseInt($(this).text().substring(3));
+                    if (m == $('.item-total').length - 2) {
+                        subtotal_money.innerHTML = `NT$ ${temp}`;
+                        let _total = parseFloat($('.discount_input').val()) * temp
+                        $('.final_money').attr('value', _total)
+
+                        $('#coupon_select').change(function () {
+                            $('.final_money').attr('value', _total)
+                            $('.discount_input').val($('#coupon_select').val())
+                            let total = parseFloat($('.total_input').val()) * parseFloat($('.discount_input').val())
+                            $('.final_money').attr('value', total);
+                        })
+                    }
+                    m += 2;
+                });
+
+                //$('#agree').click(function () {
+                //    let oo = 0;
+                //    let data = [];
+                //    for (let k = 5; k < document.querySelector('.cart_items').childNodes.length - 7; k += 2) {
+
+                //        if ($('.calendar')[oo].value == '' || $('.choose_session')[oo].value == '' || $('.item-servant-select')[oo].value == '') {
+                //            return false;
+                //        }
+
+                //        $('#goPay').css('display', 'null');
+                //        $('#goPay').css('display', 'block');
+
+
+                //        $('<style>.check_order::before{background-color:#e2c092}</style>').appendTo('.check_order');
+                //        $('<style>.check_order::after{background-color:#e2c092}</style>').appendTo('.check_order');
+
+                //        let a = {
+                //            'Services': $('._description')[oo].childNodes[1].textContent,
+                //            'Store': $('._description')[oo].childNodes[3].textContent,
+                //            'Date': $('.calendar')[oo].value,
+                //            'Session': $(".choose_session option:selected")[oo].value,
+                //            'Designer': $('.item-servant-select option:selected')[oo].value,
+                //            'Coupon': $('.coupon').val()
+                //        }
+                //        data.push(a);
+                //        oo++;
+                //    }
+
+                //    $.ajax({
+                //        type: "POST",
+                //        url: "/Bank/GetCart",
+                //        data: { jdata: JSON.stringify(data) },
+                //        dataType: 'text',
+                //        async: true,
+                //        success: function () {
+
+                //        }
+                //    });
+                //})
+
+            }
+        });
+    </script>
+}

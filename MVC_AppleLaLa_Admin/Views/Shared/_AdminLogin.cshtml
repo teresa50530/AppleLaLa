@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>AppleLaLa Admin</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <!-- Font Awesome -->
+    <link href="~/Assets/css/font-awesome.min.css" rel="stylesheet" />
+    <!-- NProgress -->
+    <link href="~/Assets/css/nprogress.css" rel="stylesheet" />
+    <!-- Animate.css -->
+    <link href="~/Assets/css/animate.min.css" rel="stylesheet" />
+
+    <!-- Custom Theme Style -->
+    <link href="~/Assets/css/custom.min.css" rel="stylesheet" />
+    @RenderSection("topCSS", required: false)
+</head>
+
+<body class="login">
+
+
+    @RenderBody()
+
+</body>
+</html>

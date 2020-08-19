@@ -1,0 +1,49 @@
+﻿@model MVCDataLibrary.DB_Model.Service
+
+@{
+    ViewBag.Title = "Details";
+}
+
+@section topCSS{
+    <link href="~/Assets/css/tables.css" rel="stylesheet" />
+}
+
+
+<h2>服務詳細資料</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal horizontal">
+        <dt>
+            服務名稱
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Service_name)
+        </dd>
+
+        <dt>
+            相片
+        </dt>
+
+        <dd>
+            <img src="@Html.DisplayFor(model => model.Service_photo_url)" alt="暫無" style="width:400px;height:400px" />
+        </dd>
+        <dd>
+            <a href="@Html.DisplayFor(model => model.Service_photo_url)">@Html.DisplayFor(model => model.Service_photo_url)</a>
+        </dd>
+
+        <dt>
+            描述
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("前往修改資料", "Edit", new { id = Model.Service_id }) |
+    @Html.ActionLink("回到列表", "Index")
+</p>
